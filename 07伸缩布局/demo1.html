@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+    html,body{
+      height: 100%;
+    }
+    body{
+      margin: 0;
+      padding: 0;
+    }
+		
+	   /*伸缩布局:父容器*/
+		/*子容器*/
+    /*父容器设置为伸缩容器后,*/
+    /*子容器默认也会成为块级元素,并且显示在一行*/
+
+    div{
+      width: 100%;
+      display: flex;/*设置为伸缩容器*/
+      background-color: green;
+      height: 500px;
+      /*flex-direction: column;*/
+      /*align-items: center;*/
+
+      /*内容排列方式:默认是按照x轴(主轴)方向排列*/
+      /*flex-direction: row;*/
+      /*按照y轴方向排列*/
+      /*flex-direction: column;*/
+      /*flex-direction: row;*/
+      /*默认是不换行flex-wrap:nowrap,换行:wrap*/
+      /*flex-wrap: wrap;*/
+    }
+    div a{
+      width: 100px;
+      line-height: 50px;
+      text-align: center;
+    }
+    div a:nth-child(4){
+      /*总的宽度剪切每个子元素的宽度,剩余的分多少份分配给这个子元素*/
+      flex: 1;
+      /*flex-grow: 1;*//*同上*/
+    }
+		
+	</style>
+</head>
+<body>
+<div>
+  <a href="#">传智播客</a>
+  <a href="#">商品分类</a>
+  <a href="#">我的订单</a>
+  <a href="#">购物车</a>
+</div>
+</body>
+</html>

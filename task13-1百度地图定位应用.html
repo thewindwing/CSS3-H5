@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    #allmap{
+      width: 600px;
+      height: 600px;
+      border:1px solid red;
+    }
+  </style>
+</head>
+<body>
+<div id="allmap"></div>
+<script src="http://api.map.baidu.com/api?v=2.0&ak=7Zj3xvp4x0c8C22Fmq6aHnHtG0X2HpiU" type="text/javascript"></script>
+<script>
+  if(navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(function (position) {
+//40.1063924942,116.3743578761
+      /* var latitude= position.coords.latitude;//纬度
+       var longitude=position.coords.longitude;//经度*/
+      console.log(position);
+      initMap(latitude,longitude);
+    },function (error) {
+      console.log(error);
+    });
+  }
+
+
+  function initMap(latitude,longitude){
+    // 百度地图API功能
+    var map = new BMap.Map("allmap");
+    var point = new BMap.Point(longitude,latitude);
+    map.centerAndZoom(point, 25);
+
+    //创建小狐狸
+    var pt = new BMap.Point(longitude,latitude);
+    var myIcon = new BMap.Icon("http://lbsyun.baidu.com/jsdemo/img/fox.gif", new BMap.Size(300,157));
+    var marker2 = new BMap.Marker(point,{icon:myIcon});  // 创建标注
+    map.addOverlay(marker2);              // 将标注添加到地图中
+  }
+
+</script>
+
+
+</body>
+</html>

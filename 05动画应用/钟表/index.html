@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS3 钟表</title>
+  <style>
+    .clock {
+      width: 200px;
+      height: 200px;
+      margin: 100px auto;
+      border: 10px solid #000;
+      border-radius: 110px;
+      position: relative;
+    }
+    .line{
+      width: 2px;
+      height: 200px;
+      background-color: gray;
+      position: absolute;
+      left:50%;
+      top:50%;
+      margin-left: -1px;
+      margin-top: -100px;
+    }
+    .line1{
+      transform: rotateZ(30deg);
+    }
+    .line2{
+      transform: rotateZ(60deg);
+    }
+    .line3{
+      transform: rotateZ(90deg);
+    }
+    .line4{
+      transform: rotateZ(120deg);
+    }
+    .line5{
+      transform: rotateZ(150deg);
+    }
+    .line6{
+      transform: rotateZ(180deg);
+    }
+    .line3,.line6{
+      width:4px ;
+      margin-left:-2px ;
+    }
+    .cover{
+      width: 160px;
+      height: 160px;
+      background-color: white;
+      border-radius: 80px;
+      position: absolute;
+      left:50%;
+      top:50%;
+      margin-left: -80px;
+      margin-top: -80px;
+    }
+    .hour{
+      width: 8px;
+      height: 40px;
+      background-color: black;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -4px;
+      margin-top: -40px;
+      transform-origin: bottom center;
+      animation: rotate 43200s steps(60) infinite;
+    }
+    .minutes{
+
+      width: 6px;
+      height: 60px;
+      background-color: black;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -3px;
+      margin-top: -60px;
+      transform-origin: bottom center;
+      animation: rotate 3600s steps(60) infinite;
+    }
+
+
+    .seconds{
+      width: 2px;
+      height: 80px;
+      background-color: red;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -1px;
+      margin-top: -80px;
+      transform-origin: bottom center;
+      animation: rotate 60s steps(60) infinite;
+    }
+    .dotted{
+      width: 20px;
+      height: 20px;
+      background-color: black;
+      position: absolute;
+      left:50%;
+      top:50%;
+      margin-left: -10px;
+      margin-top: -10px;
+      border-radius: 10px;
+    }
+    @keyframes rotate {
+      0%{
+        transform: rotateZ(0deg);
+      }
+      100%{
+        transform: rotateZ(360deg);
+      }
+    }
+
+
+
+
+
+    /*.line{*/
+      /*width:2px;*/
+      /*height: 100%;*/
+      /*background-color: #ccc;*/
+      /*position: absolute;*/
+      /*left:50%;*/
+      /*margin-left: -1px;*/
+      /*top:0;*/
+    /*}*/
+    /*.line1{*/
+      /*transform: rotate(30deg);*/
+    /*}*/
+    /*.line2{*/
+      /*transform: rotate(60deg);*/
+    /*}*/
+    /*.line3{*/
+      /*transform: rotate(90deg);*/
+    /*}*/
+    /*.line4{*/
+      /*transform: rotate(120deg);*/
+    /*}*/
+    /*.line5{*/
+      /*transform: rotate(150deg);*/
+    /*}*/
+    /*.line6{*/
+      /*transform: rotate(180deg);*/
+    /*}*/
+    /*.line3,.line6{*/
+      /*width: 4px;*/
+      /*margin-left: -2px;*/
+    /*}*/
+    /*.cover{*/
+      /*width: 160px;*/
+      /*height: 160px;*/
+      /*background-color: white;*/
+      /*position: absolute;*/
+      /*left:50%;*/
+      /*top:50%;*/
+      /*margin-left: -80px;*/
+      /*margin-top: -80px;*/
+      /*border-radius: 80px;*/
+    /*}*/
+    /*.hour{*/
+      /*width: 8px;*/
+      /*height: 50px;*/
+      /*position: absolute;*/
+      /*left:50%;*/
+      /*top:50%;*/
+      /*margin-left: -4px;*/
+      /*margin-top: -50px;*/
+      /*background-color: black;*/
+      /*transform-origin: center bottom;*/
+      /*animation: move 43200s steps(60) infinite ;*/
+    /*}*/
+    /*.minutes{*/
+      /*width: 6px;*/
+      /*height: 60px;*/
+      /*position: absolute;*/
+      /*left:50%;*/
+      /*top:50%;*/
+      /*margin-left: -3px;*/
+      /*margin-top: -60px;*/
+      /*background-color: black;*/
+      /*transform-origin: center bottom;*/
+      /*animation: move 3600s steps(60) infinite ;*/
+    /*}*/
+    /*.seconds{*/
+      /*width: 4px;*/
+      /*height: 80px;*/
+      /*position: absolute;*/
+      /*left:50%;*/
+      /*top:50%;*/
+      /*background-color: red;*/
+      /*margin-left: -2px;*/
+      /*margin-top: -80px;*/
+      /*transform-origin: center bottom;*/
+      /*animation: move 60s steps(60) infinite ;*/
+
+    /*}*/
+    /*.dotted{*/
+      /*width: 20px;*/
+      /*height: 20px;*/
+      /*background-color: black;*/
+      /*border-radius: 10px;*/
+      /*position: absolute;*/
+      /*left:50%;*/
+      /*top:50%;*/
+      /*transform: translate(-50%,-50%);*/
+    /*}*/
+    /*@keyframes move {*/
+      /*from{*/
+        /*transform: rotate(0deg);*/
+      /*}*/
+      /*to{*/
+        /*transform: rotate(360deg);*/
+      /*}*/
+    /*}*/
+
+
+
+  </style>
+</head>
+<body>
+<div class="clock">
+  <div class="line line1"></div>
+  <div class="line line2"></div>
+  <div class="line line3"></div>
+  <div class="line line4"></div>
+  <div class="line line5"></div>
+  <div class="line line6"></div>
+  <div class="cover"></div><!--用该遮挡线的-->
+  <div class="hour"></div>
+  <div class="minutes"></div>
+  <div class="seconds"></div>
+  <div class="dotted"></div><!--中间的点-->
+</div>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>视频播放器</title>
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/player.css">
+</head>
+<body>
+<figure>
+    <figcaption>视频播放器</figcaption>
+    <div class="player">
+        <video src="./video/sht.mp4"></video>
+        <div class="controls">
+            <!-- 播放/暂停 -->
+            <a href="javascript:;" class="switch fa fa-play"></a>
+            <!-- 全屏 -->
+            <a href="javascript:;" class="expand fa fa-expand"></a>
+            <!-- 进度条 -->
+            <div class="progress">
+                <div class="loaded"></div>
+                <div class="line"></div>
+                <div class="bar"></div>
+            </div>
+            <!-- 时间 -->
+            <div class="timer">
+                <span class="current">00:00:00</span> /
+                <span class="total">00:00:00</span>
+            </div>
+            <!-- 声音 -->
+        </div>
+    </div>
+</figure>
+<!--引入jquery文件-->
+<script src="./js/jquery.min.js"></script>
+<script>
+    //获取video
+    var video = $("video")[0];
+    //获取进度条
+    var line = $(".line");
+    var h, m, s;
+    console.log(video);
+    //当视频缓冲的可以播放时显示视频和总时间
+    video.oncanplay = function () {
+        video.style.display = "block";
+        //获取视频的总时间
+        var totalTime = video.duration;
+
+        h = Math.floor(totalTime / 3600);
+        m = Math.floor((totalTime - h * 3600) / 60);
+        s = Math.floor(totalTime % 60);
+        h = h < 10 ? "0" + h : h;
+        m = m < 10 ? "0" + m : m;
+        s = s < 10 ? "0" + s : s;
+        $(".total").text(h + ":" + m + ":" + s);
+    };
+
+    //播放和暂停视频
+    $(".switch").on("click", function () {
+        if (video.paused) {//暂停时
+            video.play();
+        } else {//播放时
+            video.pause();
+        }
+        //切换当前的类样式
+        $(this).toggleClass("fa-play fa-pause");
+    });
+
+
+    //更新播放进度条时
+
+    video.ontimeupdate = function () {
+        //计算进度条的长度
+        var value = 0;
+        if (video.currentTime > 0) {
+            value = video.currentTime / video.duration * 100;
+        }
+        line.css("width", value + "%");
+        //显示播放的当前时间
+
+        h = Math.floor(video.currentTime / 3600);
+        m = Math.floor((video.currentTime - h * 3600) / 60);
+        s = Math.floor(video.currentTime % 60);
+        h = h < 10 ? "0" + h : h;
+        m = m < 10 ? "0" + m : m;
+        s = s < 10 ? "0" + s : s;
+        $(".current").text(h + ":" + m + ":" + s);
+    };
+
+    //点击跳跃
+    $(".bar").on("click", function (e) {
+        video.currentTime = (e.offsetX / $(".bar").width()) * video.duration;
+    });
+    //视频播放结束
+    video.onended = function () {
+        $(".switch").removeClass("fa-pause").addClass("fa-play");
+        line.css("width", 0);
+        video.currentTime = 0;
+    };
+    //全屏
+    $(".expand").on("click", function () {
+        video.webkitRequestFullScreen();
+    });
+</script>
+
+</body>
+</html>

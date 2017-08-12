@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS3边框</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #F7F7F7;
+    }
+
+    ul {
+      width: 960px;
+      margin: 40px auto;
+      list-style: none;
+      background-color: #FFF;
+    }
+    li {
+      padding: 15px;
+    }
+
+    li:nth-child(2) {
+      width: 300px;
+      height: 150px;
+      border-style: solid;/*稍微低点版本的浏览器可以不用写*/
+
+      /*显示边框的图片*/
+      border-image-source: url("borderImages/border_image_2.png");
+      /*裁剪图片,需要四刀,*/
+      border-image-slice: 33;
+      /*设置边框的宽度*/
+      /*border-width: 33px;*/
+      /*设置图片显示的方式*/
+      border-image-repeat: round;
+      /*边框图片的宽度设置*/
+      border-image-width: 33px;
+
+
+
+
+      /*!*显示图片,设置路径,border-image-source:*!*/
+      /*border-image-source: url("borderImages/border_image_2.png");*/
+      /*!*裁剪图片,border-image-slice,不需要px*!*/
+      /*border-image-slice: 33;*/
+      /*!*设置是否平铺效果,border-image-repeat:*!*/
+      /*!*repeat:平铺(不够的就显示一半),stretch:伸展,round:环绕(时钟显示全的)*!*/
+      /*border-image-repeat: round;*/
+      /*!*只能改变边框的宽,不会影响整个元素的宽度*!*/
+      /*border-image-width: 30px;*/
+      /*!*他会影响元素的大小*!*/
+      /*!*border-width: 30px;*!*/
+    }
+
+  </style>
+</head>
+<body>
+<ul>
+  <li>
+    <img src="./borderImages/border_image_2.png" width="100" alt="">
+  </li>
+  <li>
+  </li>
+</ul>
+</body>
+</html>

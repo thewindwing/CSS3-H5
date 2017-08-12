@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS3 渐变</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #F7F7F7;
+        }
+
+        .box {
+            margin: 100px auto;
+            width: 400px;
+            height: 400px;
+            background: #4d2;
+        }
+
+        .radial {
+            width: 300px;
+            height: 300px;
+            transform: translate(50px, 50px);
+            /*background-size:200px 200px;
+            background-repeat:no-repeat;*/
+            background-color: #f0f;
+            border-radius: 50%;
+            background-image: radial-gradient(150px at center, red 10%, yellow 10%, yellow 20%, green 20%, green 30%, purple 30%, purple 40%, orange 40%, orange 50%, gray 50%, gray 60%, hotpink 60%, hotpink 70%, #ff0 70%, #ff0 80%, blue 80%, blue 90%, gold 90%, gold 100%);
+            /*径向渐变:从里向外扩散*/
+            /*radial-gradient:*/
+            /*第一个参数:半径和位置*/
+            /*第二个和第三个参数:颜色*/
+            /*background-image: radial-gradient(300px at left top,yellow,green);*/
+
+            /*background-image: radial-gradient(300px at right bottom,yellow,green);*/
+
+            /*background-image: radial-gradient(100px at 150px 30px,yellow,green);*/
+
+            /*background-image: radial-gradient(100px at center,yellow 25%,green 25%,green 50%,blue 50%,blue 75%,pink 75%, pink 90%,red);*/
+
+            /* background-image: radial-gradient(100px at center,yellow 25%,green 25%,green 50%,blue 50%,blue 75%,pink 75%, pink 90%);*/
+
+            /*径向渐变的条件 圆心点 半径 起始颜色  终止颜色*/
+            /*圆心点可以使用:left,top,bottom,right,也可以使用 横向:100px 纵向:20px */
+
+            /*background-image: radial-gradient(100px at center,yellow,green);*/
+            /*半径为100px,从左上角开始渐变,从黄色渐变到绿色*/
+            /*background-image: radial-gradient(100px at left top,yellow,green);*/
+
+            /*background-image: radial-gradient(100px at center,yellow,green);*/
+
+            /*半径为100px,从位置 150px和150px的位置开始渐变,黄色从25%开始渐变,绿色从50%开始渐变,蓝色从75%开始渐变,到红色*/
+            /*at前面可以有两个半径 100px 50 px at....*/
+            /*background-image: radial-gradient(100px at 150px 150px ,yellow 25%,green 50%,blue 75%,red);*/
+
+            /*background-image:radial-gradient(100px at center,yellow 25%,yellow 50% ,green 50%,green 75%);*/
+
+            /*background-image: radial-gradient(300px at 150px 150px ,yellow 5%,green 5%,green 10%,blue 10%,blue 15%,red 15%,red 20%,pink 20%,pink 25%,black 25%,black 30%,white 30%,white 35%,green 35%,green 40%,orange 40%,orange 45%);*/
+
+        }
+
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="radial"></div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+		}
+
+		.wrapper {
+			width: 1000px;
+			height: 600px;
+
+			margin: 50px auto;
+
+			background-color: pink;
+
+			display: flex;
+
+			flex-direction: column;
+		}
+
+		.header {
+			height: 60px;
+			text-align: center;
+			line-height: 60px;
+			background-color: blue;
+		}
+
+		.main {
+			flex: 1;
+
+			display: flex;
+		}
+
+		.aside {
+			flex: 2;
+
+			background-color: green;
+		}
+
+		.content {
+			flex: 4;
+
+			background-color: #000;
+		}
+
+		.footer {
+			height: 60px;
+			text-align: center;
+			line-height: 60px;
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="header">header</div>
+		<div class="main">
+			<div class="aside"></div>
+			<div class="content"></div>
+		</div>
+		<div class="footer">footer</div>
+	</div>
+</body>
+</html>

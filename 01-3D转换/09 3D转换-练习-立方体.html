@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS 3D转换</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #F7F7F7;
+    }
+
+    .box {
+      width: 200px;
+      height: 200px;
+      text-align: center;
+      line-height: 200px;
+      font-size: 24px;
+      margin: 100px auto;
+      position: relative;
+
+      /*animation: rotate 2s infinite linear;*/
+      transform: rotateY(30deg) rotateX(-30deg);
+      /*真正的3D的效果*/
+      transform-style: preserve-3d;
+    }
+
+    .front,.back,.left,.right,.top,.bottom{
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      top:0;
+      left:0;
+      opacity: .8;
+    }
+
+    .left{
+      background-color: red;
+      transform: rotateY(90deg) translateZ(-100px);
+    }
+    .right{
+      background-color: blue;
+      transform: rotateY(90deg) translateZ(100px);
+    }
+    .top{
+      background-color: yellow;
+      transform: rotateX(90deg) translateZ(100px);
+    }
+    .bottom{
+      background-color: deeppink;
+      transform: rotateX(90deg) translateZ(-100px);
+    }
+    .front{
+      background-color: orangered;
+      transform: rotateX(0deg) translateZ(100px);
+    }
+    .back{
+      background-color: purple;
+      transform: rotateX(0deg) translateZ(-100px);
+    }
+
+
+
+
+
+    /*.front{*/
+      /*background-color: deeppink;*/
+        /*transform: rotate(0deg) translateZ(100px);*/
+    /*}*/
+    /*.back{*/
+      /*background-color: rebeccapurple;*/
+      /*transform: rotate(0deg) translateZ(-100px);*/
+    /*}*/
+    /*.left{*/
+      /*background-color: red;*/
+      /*transform: rotateY(90deg) translateZ(-100px);*/
+    /*}*/
+    /*.right{*/
+      /*background-color: green;*/
+      /*transform: rotateY(90deg) translateZ(100px);*/
+    /*}*/
+    /*.top{*/
+      /*background-color: blue;*/
+      /*transform: rotateX(90deg) translateZ(100px);*/
+    /*}*/
+    /*.bottom{*/
+      /*background-color: yellow;*/
+      /*transform: rotateX(90deg) translateZ(-100px);*/
+    /*}*/
+
+
+
+    /*@keyframes rotate {*/
+      /*from {*/
+        /*transform: rotateX(0deg) rotateY(360deg);*/
+      /*}*/
+
+      /*to {*/
+        /*transform: rotateX(360deg) rotateY(0deg);*/
+      /*}*/
+    /*}*/
+  </style>
+</head>
+<body>
+<div class="box">
+  <div class="front">front</div>
+  <div class="back">back</div>
+  <div class="left">left</div>
+  <div class="right">right</div>
+  <div class="top">top</div>
+  <div class="bottom">bottom</div>
+</div>
+</body>
+</html>

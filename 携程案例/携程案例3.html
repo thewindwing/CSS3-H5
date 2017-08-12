@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Title</title>
+  <style>
+    body, ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    /*主体*/
+    .items{
+      padding: 0 5px;
+    }
+    .items .item {
+      display: flex;
+      margin-top: 5px;
+      border-radius: 5px;
+    }
+    /*设置四个盒子的背景颜色*/
+    .items .item:nth-child(1){
+      background-color: #00b0e0;
+    }
+    .items .item:nth-child(2){
+      background-color: #00b0e0;
+    }
+    .items .item:nth-child(3){
+      background-color: #00b0e0;
+    }
+    .items .item:nth-child(4){
+      background-color: #00b0e0;
+    }
+
+    .items .item .left {
+      flex: 1;
+    }
+
+    .items .item .right {
+      flex: 2;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .items .item .right a{
+      width: 50%;
+      height: 45px;
+      border-bottom: 1px solid #ccc;
+      border-left: 1px solid #ccc;
+      text-align: center;
+      line-height: 45px;
+      box-sizing: border-box;
+    }
+    .items .item .right a:nth-last-child(-n+2){
+      border-bottom: none;
+    }
+
+    .items .item:last-child a{
+      width: 33.3333%;
+    }
+    .extra{
+      display: flex;
+    }
+    .extra a{
+      flex: 1;
+    }
+    footer nav{
+      display: flex;
+    }
+    footer nav a{
+      height: 44px;
+      flex: 1;
+      text-align: center;
+      line-height: 1;
+      color: #ccc;
+      font-size: 12px;
+      padding-top: 20px;
+      border-top: 1px solid #CCC;
+      border-bottom: 1px solid #CCC;
+      box-sizing: border-box;
+    }
+    footer p{
+      text-align: center;
+      font-size: 14px;
+      color: #CCC;
+    }
+    footer .link a{
+      color: #CCC;
+    }
+  </style>
+</head>
+<body>
+<div class="wrapping">
+  <!--顶部-->
+  <div class="header">
+    <a href="#"><img src="images/banner.jpg" alt=""></a>
+  </div>
+  <!--主体-->
+  <div class="main">
+    <div class="items">
+      <div class="item">
+        <div class="left"></div>
+        <div class="right">
+          <a href="javascript:;">海外酒店</a>
+          <a href="javascript:;">团购</a>
+          <a href="javascript:;">特惠酒店</a>
+          <a href="javascript:;">客栈公寓</a>
+        </div>
+      </div>
+      <div class="item">
+        <div class="left"></div>
+        <div class="right">
+          <a href="javascript:;">海外酒店</a>
+          <a href="javascript:;">团购</a>
+          <a href="javascript:;">特惠酒店</a>
+          <a href="javascript:;">客栈公寓</a>
+        </div>
+      </div>
+      <div class="item">
+        <div class="left"></div>
+        <div class="right">
+          <a href="javascript:;">海外酒店</a>
+          <a href="javascript:;">团购</a>
+          <a href="javascript:;">特惠酒店</a>
+          <a href="javascript:;">客栈公寓</a>
+        </div>
+      </div>
+      <div class="item">
+        <div class="right">
+          <a href="javascript:;">海外酒店</a>
+          <a href="javascript:;">团购</a>
+          <a href="javascript:;">特惠酒店</a>
+          <a href="javascript:;">客栈公寓</a>
+          <a href="javascript:;">特惠酒店</a>
+          <a href="javascript:;">客栈公寓</a>
+        </div>
+      </div>
+
+    </div>
+    <div class="extra">
+      <a href="#"><img src="images/extra_1.png" alt=""></a>
+      <a href="#"><img src="images/extra_2.png" alt=""></a>
+    </div>
+  </div>
+  <!--底部-->
+  <footer>
+    <nav>
+      <a href="">电话预定</a>
+      <a href="">下载客户端</a>
+      <a href="">我的</a>
+    </nav>
+    <div class="copyright">
+      <p class="link">
+        <a href="javascript:;">网站地图</a>|
+        <a href="javascript:;">ENGLISH</a>|
+        <a href="javascript:;">电脑版</a>
+
+      </p>
+      <p>&copy:2015 携程旅行</p>
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>

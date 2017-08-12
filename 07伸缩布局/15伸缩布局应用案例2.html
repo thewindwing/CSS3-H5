@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    html,body{
+      height: 100%;
+    }
+    body{
+      margin: 0;
+      padding: 0;
+    }
+    .wrapper{
+      width: 100%;
+      height: 100%;
+      background-color: pink;
+      /*伸缩盒子*/
+      display: flex;
+      /*列的方式排列*/
+      flex-direction: column;
+    }
+    header{
+      background-color: red;
+      height: 20%;
+    }
+    section{
+      background-color: green;
+      /*height: 60%;*/
+      flex: 1;
+      display: flex;
+    }
+    article{
+      flex: 3;
+      background-color: orange;
+    }
+    aside{
+      flex: 1;
+      background-color: yellow;
+    }
+    footer{
+      background-color: blue;
+      height: 20%;
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <header></header>
+  <section>
+    <article></article>
+    <aside></aside>
+  </section>
+  <footer></footer>
+</div>
+
+</body>
+</html>

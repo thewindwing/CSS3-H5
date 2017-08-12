@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    body{
+      margin: 0;
+      padding: 0;
+    }
+    ul{
+      width: 800px;
+      height: 400px;
+      border:1px solid red;
+      position: absolute;
+      left:50%;
+      top:50%;
+      margin-left: -400px;
+      margin-top:-200px ;
+      list-style-type: none;
+      padding: 0;
+
+
+      /*指定ul为父级伸缩容器*/
+      display: flex;
+
+      /*默认主轴方向:向右*/
+
+      /*如何调整主轴的-方向---使用flex-direction属性--*/
+
+      /*主轴方向--默认向右*/
+      /*flex-direction: row;*/
+      /*主轴方向向下*/
+      /*flex-direction: column;*/
+      /*主轴方向向左*/
+      /*flex-direction: row-reverse;*/
+      /*主轴方向向上*/
+      /*flex-direction: column-reverse;*/
+
+      /*如何调整主轴的-对齐方式----使用justify-content*/
+      /*主轴对齐方向默认---向右*/
+      /*justify-content: flex-start;*/
+      /*主轴对齐方向---向左*/
+       /*justify-content:flex-end;*/
+      /*主轴对齐方向---居中*/
+      /*justify-content: center;*/
+      /*主轴对齐方向---两端*/
+      /*justify-content: space-between;*/
+      /*主轴对齐方向----环绕*/
+      /*justify-content: space-around;*/
+
+      /*默认侧轴方向:---向下*/
+      /*侧轴方向--向下*/
+      /*align-items: flex-start;*/
+      /*侧轴方向--向上*/
+      /*align-items: flex-end;*/
+      /*侧轴方向--中间*/
+      /*align-items: center;*/
+      /*侧轴方向--拉伸状态,注意,在li中设置该属性,并且把li高度干掉*/
+      /*align-items: stretch;*/
+
+      /*下面属性设置的时候,把li的宽度改为百分比的方式*/
+      /*控制是否换行:flex-wrap:nowrap*/
+      /*默认不换行*/
+      /*换行*/
+      /*flex-wrap: wrap;*/
+      /*反方向换行*/
+      /*flex-wrap: wrap-reverse;*/
+
+      /*柔性排列：设置或检索弹性盒模型对象的子元素排列方式*/
+      /*时候第二个ul*/
+      /*换行排列*/
+      /*flex-flow: wrap;*/
+      /*反方向排列*/
+      /*flex-flow: wrap-reverse;*/
+     /*flex-flow: row-reverse;*/
+      /*flex-flow: row-reverse nowrap;*/
+      /**/
+
+
+
+    }
+    ul li{
+      /*width: 40%;*/
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+      text-align: center;
+      line-height: 200px;
+    }
+    /*分多少份*/
+    /*ul li:last-child{*/
+      /*!*flex: 1;*!*/
+      /*!*设置当前自己的这个元素的排列对齐方式*!*/
+      /*!*中间*!*/
+      /*!*align-self: center;*!*/
+      /*!*下面*!*/
+      /*!*align-self: flex-end;*!*/
+    /*}*/
+    /*ul li:nth-child(1){*/
+      /*!*调整顺序*!*/
+      /*order: 3;*/
+    /*}*/
+    /*ul li:nth-child(2){*/
+      /*order: 1;*/
+    /*}*/
+    /*ul li:nth-child(3){*/
+      /*order: 2;*/
+    /*}*/
+
+  </style>
+</head>
+<body>
+<!--演示之前的样式-->
+<ul>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+</ul>
+<!--演示弹性子元素排列方式-->
+<!--<ul>-->
+  <!--<li>1</li>-->
+  <!--<li>2</li>-->
+  <!--<li>3</li>-->
+  <!--<li>4</li>-->
+  <!--<li>5</li>-->
+  <!--<li>6</li>-->
+  <!--<li>7</li>-->
+  <!--<li>8</li>-->
+<!--</ul>-->
+
+</body>
+</html>

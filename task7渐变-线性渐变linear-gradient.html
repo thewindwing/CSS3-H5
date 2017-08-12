@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS3 渐变</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #CCC;
+        }
+
+        .linear {
+            width: 1000px;
+            height: 100px;
+            background-color: black;
+            margin: 100px auto;
+            background-image: linear-gradient(135deg, yellow 25%, transparent 25%, transparent 50%, yellow 50%, yellow 75%, transparent 75%);
+            background-size: 100px 100px;
+        }
+
+        /*<angle>： 用角度值指定渐变的方向（或角度）。*/
+        /*to left： 设置渐变为从右到左。相当于: 270deg*/
+        /*to right： 设置渐变从左到右。相当于: 90deg*/
+        /*to top： 设置渐变从下到上。相当于: 0deg */
+        /*to bottom： 设置渐变从上到下。相当于: 180deg。这是默认值，等同于留空不写。 */
+
+        /*.linear:nth-child(1) {
+          width: 1000px;
+          height: 100px;
+          margin: 100px auto;
+          background-color: yellow;*/
+        /*linerar-gradient:线性渐变*/
+
+        /*第一个参数是方向,可以是:to right 也可以是度数 90deg*/
+        /*第二个参数是开始渐变的颜色:red*/
+        /*第三个参数是结束的渐变颜色:green*/
+
+        /*background-image: linear-gradient(to right,yellow ,green);*/
+        /*background-image: linear-gradient(90deg,yellow ,green);*/
+        /*background-image: linear-gradient(180deg,yellow ,green);*/
+
+        /*最左边是纯黄色,从25%的位置开始渐变到绿色50%的位置,绿色从50%的位置纯色开始渐变到粉色*/
+        /*background-image: linear-gradient(to right,yellow 25%,green 50%,pink);*/
+
+        /*background-image: linear-gradient(*/
+        /*to right,*/
+        /*yellow 25%,!*黄色从25%开始渐变*!*/
+        /*yellow 50%,!*黄色从50%开始渐变*!*/
+        /*green 50%,!*绿色从50%开始渐变*!*/
+        /*pink */
+        /*);*/
+
+        /*background-image: linear-gradient(*/
+        /*to right,*/
+        /*yellow 25%,*/
+        /*blue 25%,*/
+        /*blue 50%,*/
+        /*green 50%,*/
+        /*green 75%,*/
+        /*pink 75%*/
+        /*);*/
+
+        /*总结:设置的background-image此时相对于size设置的百分比,如果没有size这个属性.此时的百分比是相对于盒子的百分比,*/
+        /*background-size: 100px 100px;*/
+        /*background-repeat: no-repeat;*/
+
+        /*background-image: linear-gradient(
+            135deg,
+            #000 25%,
+            transparent 25%,
+            transparent 50%,
+            #000 50%,
+            #000 75%,
+            transparent 75%
+        );
+        background-size: 100px 100px;
+        !*animation:名字,速度,无限的,匀速的*!
+        !*animation:animate 1s infinite linear ;*!
+      }*/
+
+        /*@keyframes animate {
+          from{
+
+          }
+          to{
+            background-position: 100px 0;
+          }
+        }*/
+
+
+    </style>
+</head>
+<body>
+<div class="linear"></div>
+<!-- <div class="linear"></div> -->
+</body>
+</html>

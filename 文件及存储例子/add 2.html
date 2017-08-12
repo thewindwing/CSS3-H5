@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>学生档案</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0 0 40px;
+            background-color: #F7F7F7;
+            font-family: '微软雅黑';
+        }
+
+        form {
+            max-width: 640px;
+            width: 100%;
+            margin: 24px auto;
+            font-size: 28px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 10px 15px;
+            font-size: 24px;
+        }
+
+        input {
+            display: block;
+            width: 100%;
+            height: 40px;
+            font-size: 22px;
+            margin-top: 10px;
+            padding: 6px 10px;
+            color: #333;
+            border: 1px solid #CCC;
+            box-sizing: border-box;
+        }
+
+        .btn {
+            margin-top: 30px;
+        }
+
+        .btn input {
+            color: #FFF;
+            background-color: green;
+            border: 0 none;
+            outline: none;
+            cursor: pointer;
+        }
+
+        input[type="file"] {
+            /*opacity: 0;*/
+            width: 120px;
+            position: absolute;
+            right: 0;
+            z-index: 9;
+        }
+
+        .import {
+            height: 40px;
+            position: relative;
+        }
+
+    </style>
+</head>
+<body>
+<form action="">
+    <fieldset>
+        <legend>学生档案</legend>
+        <label for="">
+            姓名: <input type="text" name="name" autofocus placeholder="请输入姓名">
+        </label>
+        <label for="">
+            性别: <input type="text" name="sex" autofocus placeholder="请输入性别">
+        </label>
+        <label for="">
+            年龄: <input type="text" name="age" autofocus placeholder="请输入年龄">
+        </label>
+        <label for="" class="btn">
+            <input type="submit" value="保存">
+        </label>
+        <label for="" class="import">
+            <input type="file">
+        </label>
+    </fieldset>
+</form>
+<script src="./js/jquery.min.js"></script>
+<script>
+    //获取上传文件的input对象
+    var file = $(".import input")[0];
+    //input内容改变时
+    file.onchange = function () {
+        //获取上传的文件 files获取的是一个对象 获取键名为0的值
+        var f1 = this.files[0];
+        //创建一个对象用来读取文件内容
+        var fReader = new FileReader;
+        fReader.readAsText(f1);
+        //读取完成
+        fReader.onload = function () {
+            //获取读取的内容
+            var result = this.result;
+            //将读取的内容存入localStorage中
+            var list = localStorage.getItem("list");
+            //若里面已经有list
+            //获取list，并转成对象
+            if (list) {
+                list = JSON.parse(list);
+                list = list.concat(JSON.parse(result));
+                localStorage.setItem("list", JSON.stringify(list));
+            } else {
+                localStorage.setItem("list", result);
+            }
+        };
+    };
+
+
+    //获取
+    $(".btn").click(function () {
+        //获取form表单中所有的input元素
+        var formData = $("form").serializeArray();
+        //创建一个对象，用来存放表单元素中的内容
+        var temp = {};
+        $.each(formData, function (index, val) {
+            temp[val.name] = val.value;
+        });
+        //将temp对象放入localStorage中
+        var list = localStorage.getItem("list");
+        if (list) {//有内容
+            //转为对象
+            list = JSON.parse(list);
+            //将temp存入list内
+            list.push(temp);
+            //将list存入localStorage中
+            localStorage.setItem("list", JSON.stringify(list));
+        } else {
+            //没有内容
+            var list = [temp];
+            //将list存入localStorage中
+            localStorage.setItem("list", JSON.stringify(list));
+        }
+        return false;
+    });
+</script>
+
+</body>
+</html>

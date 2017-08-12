@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS 过渡</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #F7F7F7;
+        }
+
+        .pop {
+            width: 300px;
+            height: 120px;
+            margin: 30px auto;
+            border-radius: 10px;
+            transition: all 1s ease;
+            background: url(images/paopao.png) left top no-repeat, url(images/paopao.png) right bottom no-repeat #000;
+        }
+
+        .pop:hover {
+            background-position: left bottom, right top;
+        }
+    </style>
+</head>
+<body>
+<div class="pop"></div>
+</body>
+</html>

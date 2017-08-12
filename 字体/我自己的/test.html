@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="demo.css">
+  <style>
+    @font-face {
+      font-family: heima;
+      src:url("fonts/icomoon.svg") format('svg'),
+      url("fonts/icomoon.eot") format('embedded-opentype'),
+      url("fonts/icomoon.ttf") format('turetype'),
+      url("fonts/icomoon.woff") format('woff')
+    }
+    span{
+      font-family: heima;
+    }
+    .icon-cart:before {
+      content: "\e901";
+    }
+    .cls_delete::before{
+      content: "\e905";
+    }
+  </style>
+</head>
+<body>
+<span class="icon-cart"></span>
+<span class="icon-delete cls_delete"></span>
+</body>
+</html>

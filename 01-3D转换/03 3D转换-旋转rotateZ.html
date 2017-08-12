@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS 3D转换</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #F7F7F7;
+		}
+
+		.rotateZ {
+			height: 226px;
+			padding-top: 100px;
+			text-align: center;
+			perspective: 1000px;
+		}
+
+		.rotateZ img {
+			transition: all 3s;
+		}
+
+		.rotateZ:hover img {
+			/*z轴方向,逆时针旋转*/
+			transform: rotateZ(180deg);
+		}
+	</style>
+</head>
+<body>
+	<div class="rotateZ">
+		<img src="./images/z.jpg" alt="">
+	</div>
+</body>
+</html>

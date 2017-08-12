@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS 过渡</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #F7F7F7;
+        }
+
+        .items {
+            width: 1250px;
+            height: 320px;
+            padding-left: 20px;
+            margin: 80px auto;
+        }
+
+        .item {
+            width: 230px;
+            height: 300px;
+            text-align: center;
+            margin-right: 20px;
+            background-color: #FFF;
+            float: left;
+            position: relative;
+            top: 0;
+            overflow: hidden;
+            transition: all 1s linear;
+        }
+
+        .pic {
+            margin-top: 30px;
+        }
+
+        /*设置下面的块*/
+        .desc {
+            width: 100%;
+            height: 100px;
+            background: orange;
+            position: absolute;
+            left: 0;
+            bottom: -100px;
+            transition: all 1s;
+        }
+
+        .item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 5px red;
+        }
+
+        .item:hover .desc {
+            bottom: 0;
+        }
+
+        /*!*!*图片位置*!*!*/
+        /*.pic{*/
+        /*margin-top: 30px;*/
+        /*}*/
+        /*!*设置遮挡层隐藏到下面,*!*/
+        /*.desc{*/
+        /*position: absolute;*/
+        /*width: 100%;*/
+        /*height: 100px;*/
+        /*background-color: orange;*/
+        /*bottom: -100px;*/
+        /*transition: all .5s;*/
+        /*}*/
+        /*!*鼠标进入到item中 item向上,同时设置阴影*!*/
+        /*.item:hover{*/
+        /*top: -10px;*/
+        /*box-shadow: 0 0 10px #ff6700;*/
+        /*}*/
+        /*!*设置遮挡的元素显示出来*!*/
+        /*.item:hover .desc{*/
+        /*bottom: 0;*/
+        /*}*/
+
+
+    </style>
+</head>
+<body>
+<div class="items">
+    <div class="item">
+        <img src="images/1.jpg" alt="">
+        <div class="desc"></div>
+    </div>
+
+    <div class="item">
+        <div class="pic">
+            <img src="images/2.jpg" alt="">
+        </div>
+        <div class="desc"></div>
+    </div>
+
+    <div class="item">
+        <div class="pic">
+            <img src="images/3.jpg" alt="">
+        </div>
+        <div class="desc"></div>
+    </div>
+    <div class="item">
+        <div class="pic">
+            <img src="images/4.jpg" alt="">
+        </div>
+        <div class="desc"></div>
+    </div>
+    <div class="item">
+        <div class="pic">
+            <img src="images/5.jpg" alt="">
+        </div>
+        <div class="desc"></div>
+    </div>
+</div>
+</body>
+</html>
