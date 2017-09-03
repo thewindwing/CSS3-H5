@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<input type="file" id="f1"/>
+<input type="file" id="f2"/>
+<input type="button" value="设置样式" id="btn"/>
+<div id="dv"></div>
+<script>
+    //读取第一个input上传的css文件，来设置div的类样式
+
+    //获取第一个input，注册onchange事件
+    var inputObj1 = document.querySelector("#f1");
+    inputObj1.onchange = function () {
+        //通过input的files属性（返回一个对象），获取第一个上传的文件
+        var f1 = inputObj1.files[0];
+        //创建一个读取本地文件的对象
+        var fReader = new FileReader;
+        //同对象的readAsText()方法读取文件中的内容---直接改变对象的内容
+        fReader.readAsText(f1);
+        //对象读取完成文件时
+        fReader.onload = function () {
+            //通过对象的result属性，获取读取的结果
+            var result = fReader.result;
+            //创建style标签，并添加到head中
+            var style = document.createElement("style");
+            document.querySelector("head").appendChild(style);
+            //把读取的文件内容添加到div中
+            style.innerHTML = result;
+        };
+    };
+
+
+    //读取第二个input上传的js文件，来设置div的类样式
+
+    //获取第二个input，注册onchange事件
+    var inputObj2 = document.querySelector("#f2");
+    inputObj2.onchange = function () {
+        //通过input的files属性（返回一个对象），获取第一个上传的文件
+        var f2 = inputObj2.files[0];
+        //创建一个读取本地文件的对象
+        var fReader = new FileReader;
+        //同对象的readAsText()方法读取文件中的内容---直接改变对象的内容
+        fReader.readAsText(f2);
+        //对象读取完成文件时
+        fReader.onload = function () {
+            //通过对象的result属性，获取读取的结果
+            var result = fReader.result;
+            //创建script标签，并添加到head中
+            var script = document.createElement("script");
+            document.querySelector("head").appendChild(script);
+            //把读取的文件内容添加到div中
+            script.innerHTML = result;
+        };
+    };
+</script>
+
+</body>
+</html>
