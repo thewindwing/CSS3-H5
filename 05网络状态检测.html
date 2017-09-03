@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script>
+    /*
+    * H5中新增了一些API
+    * 可以在网页中直接检测网络是否连接成功
+    *
+    *
+    * */
+    var line=window.navigator.onLine;//连同成功就可以发送请求,否则就不能发送请求
+    console.log(line);
+    if(line){
+      alert("可以发送请求");
+    }else{
+      alert("不可以发送请求");
+    }
+
+    window.online=function () {
+      alert("连接成功了");
+    };
+    window.offline=function () {
+      alert("连接失败了");
+    };
+  </script>
+</head>
+<body>
+
+
+</body>
+</html>

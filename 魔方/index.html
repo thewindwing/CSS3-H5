@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .parent {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            margin: 150px auto;
+            /*border:1px solid red;*/
+            transform-style: preserve-3d;
+            transform: rotateX(-10deg) rotateY(-10deg);
+            animation: rotate 3s linear infinite 3s alternate;
+        }
+
+        .parent > div {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            opacity: 0.5;
+            /*text-align:center;*/
+
+        }
+
+        #front {
+
+            transform: translateZ(150px);
+        }
+
+        #behind {
+
+            transform: translateZ(-150px);
+        }
+
+        #top {
+
+            transform: translateY(-150px) rotateX(90deg);
+        }
+
+        #bottom {
+
+            transform: translateY(150px) rotateX(-90deg);
+        }
+
+        #left {
+
+            transform: translateX(-150px) rotateY(-90deg);
+        }
+
+        #right {
+
+            transform: translateX(150px) rotateY(90deg);
+        }
+
+        ul li {
+            float: left;
+            width: 100px;
+            height: 100px;
+            box-sizing: border-box;
+            list-style: none;
+            border: 1px solid #fff;
+            position: relative;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotateX(-10deg) rotateY(-10deg);
+            }
+            100% {
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="parent">
+    <div id="front"></div>
+    <div id="behind"></div>
+    <div id="left"></div>
+    <div id="right"></div>
+    <div id="top"></div>
+    <div id="bottom"></div>
+</div>
+
+<script src="jquery.js"></script>
+<script>
+    //为每一面创建1个ul，9个li
+    var divs = $('.parent>div');
+    var colors = ['blue', 'red', 'purple', 'orange', 'pink', 'skyblue'];
+
+    divs.each(function (i, item) {
+        var ul = $('<ul></ul>');
+        for (var j = 0; j < 9; j++) {
+            $('<li></li>').appendTo(ul).css({'backgroundColor': colors[i]});
+        }
+        ul.appendTo($(item));
+    });
+    var positions = [];
+    //每个li的位置
+    for (var i = 0; i < 54; i++) {
+        positions.push(parseInt(Math.random() * 300));
+
+    }
+    $('li').each(function (i, ele) {
+        $(ele).css({'left': positions[i], 'top': positions[i]});
+
+    });
+    $('li').each(function (i, ele) {
+        $(ele).animate({left: 0, top: 0}, 2000, 'linear');
+    });
+
+</script>
+</body>
+</html>
