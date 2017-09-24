@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+</head>
+<body>
+ARIA role属性值表
+<table id="ariaRole" width="100%" border="1" cellspacing="1" cellpadding="0" class="params_table">
+  <caption>
+    ARIA Roles值示意及说明表<br>
+  </caption>
+  <tbody><tr>
+    <th width="18%" scope="col">role属性值</th>
+    <th>含义</th>
+    <th>HTML示意</th>
+    <th>说明</th>
+  </tr>
+  <tr>
+    <td>alert</td>
+    <td>表示警告</td>
+    <td>
+      <pre>&lt;p id="ajax_error_alert" <span style="color:#cd0000;">role="alert"</span>&gt;&lt;/p&gt;</pre>
+    </td>
+    <td>例如ajax操作返回错误信息的<code>div</code>标签。</td>
+  </tr>
+  <tr>
+    <td>alertdialog</td>
+    <td>表示警告弹出框</td>
+    <td>
+<pre>&lt;div aria-labelledby="alert_title" aria-hidden="false" tabindex="0"
+        <span style="color:#cd0000;">role="alertdialog"</span> id="alert1"&gt;
+    &lt;p id="alert_title"&gt;弹出框&lt;/p&gt;
+    &lt;p id="alert_message"&gt;哥，你输入的时间穿越了，请重新输入！&lt;/p&gt;
+    &lt;input type="button" value="关闭" id="alert_close" /&gt;
+&lt;/div&gt;</pre>
+    </td>
+    <td>自定义的出错提示弹框。
+      <p><img width="305" height="120" alt="自定义的出错提示框截图" src="http://image.zhangxinxu.com/image/blog/201203/aria-role-alertdialog.png"></p>
+    </td>
+  </tr>
+  <tr>
+    <td>application</td>
+    <td>表示应用</td>
+    <td>
+<pre>&lt;div id="application" <span style="color:#cd0000;">role="application"</span>&gt;
+    &lt;label id="date_label" for="date"&gt;时间&lt;/label&gt;:
+    &lt;input id="date" type="text"/&gt;
+    &lt;button id="bn_date"&gt;选择日期...&lt;/button&gt;
+    &lt;div id="dp1" class="datepicker" aria-hidden="true"&gt;
+        <span style="color:#999;">&lt;-- 时间选择控件具体 --&gt;</span>
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+    </td>
+    <td>例如自定义的时间选择器。</td>
+  </tr>
+  <tr>
+    <td>button</td>
+    <td>表示按钮</td>
+    <td>
+<pre>&lt;div role="toolbar" tabindex="0" aria-activedescendant="button1"&gt;
+  &lt;img src="btncut.png" id="button1" <span style="color:#cd0000;">role="button"</span> alt="cut" /&gt;
+  &lt;img src="btncopy.png" id="button2" <span style="color:#cd0000;">role="button"</span> alt="copy" /&gt;
+  &lt;img src="btnpaste.png" id="button3" <span style="color:#cd0000;">role="button"</span> alt="paste" /&gt;
+&lt;/div&gt;</pre>
+    </td>
+    <td>大家都懂的，没啥好说的</td>
+  </tr>
+  <tr>
+    <td>checkbox</td>
+    <td>表示复选框</td>
+    <td>
+<pre>&lt;ul role="group"&gt;
+  &lt;li <span style="color:#cd0000;">role="checkbox"</span> aria-checked="mixed" tabindex="0"&gt;所有姑娘&lt;/li&gt;
+      &lt;li <span style="color:#cd0000;">role="checkbox"</span> aria-checked="false" tabindex="0"&gt;晴川&lt;/li&gt;
+      &lt;li <span style="color:#cd0000;">role="checkbox"</span> aria-checked="true" tabindex="0"&gt;静秋&lt;/li&gt;
+      &lt;li <span style="color:#cd0000;">role="checkbox"</span> aria-checked="true" tabindex="0"&gt;黄小仙&lt;/li&gt;
+&lt;/ul&gt;</pre>
+    </td>
+    <td>同样，大家都懂的，没啥好说的
+      <p><img width="140" height="116" alt="aria role=checkbox" src="http://image.zhangxinxu.com/image/blog/201203/aria-checked.png"></p>
+    </td>
+  </tr>
+  <tr>
+    <td>combobox</td>
+    <td>表示下拉列表框</td>
+    <td>
+<pre>&lt;input id="cb1-edit" class="cb_edit" type="text" tabindex="0"
+      <span style="color:#cd0000;">role="combobox"</span> aria-autocomplete="inline" aria-owns="cb1-list" /&gt;
+
+&lt;ul id="cb1-list" tabindex="-1" role="listbox" aria-expanded="true"&gt;
+    &lt;li id="cb1-opt1" role="option"&gt;晴川&lt;/li&gt;
+    &lt;li id="cb1-opt2" role="option"&gt;静秋&lt;/li&gt;
+    &lt;li id="cb1-opt3" role="option"&gt;黄小仙&lt;/li&gt;
+&lt;/ul&gt;</pre>
+    </td>
+    <td>
+      <p><img width="239" height="142" src="http://image.zhangxinxu.com/image/blog/201203/aria-role-combobox.png"></p>
+    </td>
+  </tr>
+  <tr>
+    <td>grid</td>
+    <td>表示网格</td>
+    <td>
+<pre>&lt;table id="grid1" <span style="color:#cd0000;">role="grid"</span> aria-labelledby="grid1_label" aria-readonly="true"&gt;
+  &lt;caption id="grid1_label"&gt;美女们&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th id="grid1_q" tabindex="-1"&gt;晴川&lt;/th&gt;
+      &lt;th id="grid1_j" tabindex="-1"&gt;静秋&lt;/th&gt;
+      &lt;th id="grid1_h" tabindex="-1"&gt;黄小仙&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody id="data"&gt;&lt;/tbody&gt;
+&lt;/table&gt;</pre>
+    </td>
+    <td><img alt="aria网格" width="187" height="58" src="http://image.zhangxinxu.com/image/blog/201203/aria-role-grid.png"></td>
+  </tr>
+  <tr>
+    <td>gridcell</td>
+    <td>表示网格单元</td>
+    <td>
+<pre>&lt;table role="grid" aria-readonly="true"&gt;
+  &lt;tr role="row" aria-selected="false"&gt;
+    &lt;td <span style="color:#cd0000;">role="gridcell"</span> tabindex="-1"&gt;晴川&lt;/td&gt;
+    &lt;td <span style="color:#cd0000;">role="gridcell"</span> tabindex="-1"&gt;静秋&lt;/td&gt;
+    &lt;td <span style="color:#cd0000;">role="gridcell"</span> tabindex="-1"&gt;黄小仙&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</pre>
+    </td>
+    <td>类似于table &amp; table-cell</td>
+  </tr>
+  <tr>
+    <td>group</td>
+    <td>表示组合并</td>
+    <td>
+<pre>&lt;ul <span style="color:#cd0000;">role="group"</span>&gt;
+  &lt;li role="checkbox" aria-checked="mixed" tabindex="0"&gt;所有姑娘&lt;/li&gt;
+      &lt;li role="checkbox" aria-checked="false" tabindex="0"&gt;晴川&lt;/li&gt;
+      &lt;li role="checkbox" aria-checked="true" tabindex="0"&gt;静秋&lt;/li&gt;
+      &lt;li role="checkbox" aria-checked="true" tabindex="0"&gt;黄小仙&lt;/li&gt;
+&lt;/ul&gt;</pre>
+    </td>
+    <td>
+      <p><img width="140" height="116" alt="aria role=checkbox" src="http://image.zhangxinxu.com/image/blog/201203/aria-checked.png"></p>
+    </td>
+  </tr>
+  <tr>
+    <td>heading</td>
+    <td>表示应用程序标题头</td>
+    <td>
+      <pre>&lt;div <span style="color:#cd0000;">role="heading"</span> aria-live="assertive" aria-atomic="true"&gt;2012年 3月&lt;/div&gt;</pre>
+    </td>
+    <td>例如时间选择器中的月份标题：
+      <p><img width="267" height="232" alt="aria时间选择器" src="http://image.zhangxinxu.com/image/blog/201203/aria-role-heading.png"></p>
+    </td>
+  </tr>
+  <tr>
+    <td>listbox</td>
+    <td>表示列表框</td>
+    <td>
+<pre>&lt;input id="cb1-edit" class="cb_edit" type="text" tabindex="0"
+      role="combobox" aria-autocomplete="inline" aria-owns="cb1-list" /&gt;
+
+&lt;ul id="cb1-list" tabindex="-1" <span style="color:#cd0000;">role="listbox"</span> aria-expanded="true"&gt;
+    &lt;li id="cb1-opt1" role="option"&gt;晴川&lt;/li&gt;
+    &lt;li id="cb1-opt2" role="option"&gt;静秋&lt;/li&gt;
+    &lt;li id="cb1-opt3" role="option"&gt;黄小仙&lt;/li&gt;
+&lt;/ul&gt;</pre>
+    </td>
+    <td>
+      <p><img width="239" height="142" src="http://image.zhangxinxu.com/image/blog/201203/aria-role-combobox.png"></p>
+    </td>
+  </tr>
+  <tr>
+    <td>log</td>
+    <td>表示日志记录</td>
+    <td>
+      <pre>&lt;div <span style="color:#cd0000;">role="log"</span> aria-atomic="false" aria-relevant="additions"&gt;&lt;/div&gt;</pre>
+    </td>
+    <td>类似三国杀右侧记录战事区域；或是比赛文字直播记录区域。</td>
+  </tr>
+  <tr>
+    <td>menu</td>
+    <td>表示菜单</td>
+    <td>
+<pre>&lt;ul role="menubar" title="美女菜单"&gt;
+  &lt;li role="menuitem" tabindex="0" aria-haspopup="true"&gt;美女
+    &lt;ul <span style="color:#cd0000;">role="menu"</span> aria-hidden="true"&gt;
+      &lt;li role="menuitemradio" tabindex="-1" aria-checked="true"&gt;晴川&lt;/li&gt;
+      &lt;li role="menuitemradio" tabindex="-1" aria-checked="false"&gt;静秋&lt;/li&gt;
+      &lt;li role="menuitemradio" tabindex="-1" aria-checked="false"&gt;黄小仙&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li role="menuitem" tabindex="-1" aria-haspopup="false"&gt;靓女&lt;/li&gt;
+  &lt;li role="menuitem" tabindex="-1" aria-haspopup="false"&gt;淑女&lt;/li&gt;
+  &lt;li role="menuitem" tabindex="-1" aria-haspopup="false"&gt;熟女&lt;/li&gt;
+&lt;/ul&gt;</pre>
+    </td>
+    <td>
+      <p><img width="206" height="107" alt="aria下拉菜单" src="http://image.zhangxinxu.com/image/blog/201203/aria-role-menu.png"></p>
+    </td>
+  </tr>
+  <tr>
+    <td>menubar</td>
+    <td>表示菜单栏</td>
+    <td>
+<pre>&lt;ul <span style="color:#cd0000;">role="menubar"</span> title="美女菜单"&gt;
+  &lt;li role="menuitem" tabindex="0" aria-haspopup="true"&gt;美女
+    &lt;ul role="menu" aria-hidden="true"&gt;
+      &lt;li role="menuitemradio" tabindex="-1" aria-checked="true"&gt;晴川&lt;/li&gt;
+      &lt;li role="menuitemradio" tabindex="-1" aria-checked="false"&gt;静秋&lt;/li&gt;
+      &lt;li role="menuitemradio" tabindex="-1" aria-checked="false"&gt;黄小仙&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li role="menuitem" tabindex="-1" aria-haspopup="false"&gt;靓女&lt;/li&gt;
+  &lt;li role="menuitem" tabindex="-1" aria-haspopup="false"&gt;淑女&lt;/li&gt;
+  &lt;li role="menuitem" tabindex="-1" aria-haspopup="false"&gt;熟女&lt;/li&gt;
+&lt;/ul&gt;</pre>
+    </td>
+    <td>
+      <p><img width="206" height="107" alt="aria下拉菜单" src="http://image.zhangxinxu.com/image/blog/201203/aria-role-menu.png"></p>
+    </td>
+  </tr>
+  <tr>
+    <td>menuitem</td>
+    <td>表示菜单项</td>
+    <td>
+<pre>&lt;ul role="menubar" title="美女菜单"&gt;
+  &lt;li <span style="color:#cd0000;">role="menuitem"</span> tabindex="0" aria-haspopup="true"&gt;美女
+    &lt;ul role="menu" aria-hidden="true"&gt;
+      &lt;li role="menuitemradio" tabindex="-1" aria-checked="true"&gt;晴川&lt;/li&gt;
+      &lt;li role="menuitemradio" tabindex="-1" aria-checked="false"&gt;静秋&lt;/li&gt;
+      &lt;li role="menuitemradio" tabindex="-1" aria-checked="false"&gt;黄小仙&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li <span style="color:#cd0000;">role="menuitem"</span> tabindex="-1" aria-haspopup="false"&gt;靓女&lt;/li&gt;
+  &lt;li <span style="color:#cd0000;">role="menuitem"</span> tabindex="-1" aria-haspopup="false"&gt;淑女&lt;/li&gt;
+  &lt;li <span style="color:#cd0000;">role="menuitem"</span> tabindex="-1" aria-haspopup="false"&gt;熟女&lt;/li&gt;
+&lt;/ul&gt;</pre>
+    </td>
+    <td>
+      <p><img width="206" height="107" alt="aria下拉菜单" src="http://image.zhangxinxu.com/image/blog/201203/aria-role-menu.png"></p>
+    </td>
+  </tr>
+  <tr>
+    <td>menuitemcheckbox</td>
+    <td>表示可复选的菜单项</td>
+    <td>
+<pre>&lt;ul role="menubar" title="美女菜单"&gt;
+  &lt;li role="menuitem" tabindex="0" aria-haspopup="true"&gt;美女
+    &lt;ul role="menu" aria-hidden="true"&gt;
+      &lt;li <span style="color:#cd0000;">role="menuitemcheckbox"</span> tabindex="-1" aria-checked="true"&gt;晴川&lt;/li&gt;
+      &lt;li <span style="color:#cd0000;">role="menuitemcheckbox"</span> tabindex="-1" aria-checked="true"&gt;静秋&lt;/li&gt;
+      &lt;li <span style="color:#cd0000;">role="menuitemcheckbox"</span> tabindex="-1" aria-checked="false"&gt;黄小仙&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li role="menuitem" tabindex="-1" aria-haspopup="false"&gt;靓女&lt;/li&gt;
+  &lt;li role="menuitem" tabindex="-1" aria-haspopup="false"&gt;淑女&lt;/li&gt;
+  &lt;li role="menuitem" tabindex="-1" aria-haspopup="false"&gt;熟女&lt;/li&gt;
+&lt;/ul&gt;</pre>
+    </td>
+    <td>
+      <p><img width="204" height="105" alt="aria下拉菜单" src="http://image.zhangxinxu.com/image/blog/201203/aria-role-menuitemcheckbox.png"></p>
+    </td>
+  </tr>
+  <tr>
+    <td>menuitemradio</td>
+    <td>表示只能单选的菜单项</td>
+    <td>
+<pre>&lt;ul role="menubar" title="美女菜单"&gt;
+  &lt;li role="menuitem" tabindex="0" aria-haspopup="true"&gt;美女
+    &lt;ul role="menu" aria-hidden="true"&gt;
+      &lt;li <span style="color:#cd0000;">role="menuitemradio"</span> tabindex="-1" aria-checked="true"&gt;晴川&lt;/li&gt;
+      &lt;li <span style="color:#cd0000;">role="menuitemradio"</span> tabindex="-1" aria-checked="false"&gt;静秋&lt;/li&gt;
+      &lt;li <span style="color:#cd0000;">role="menuitemradio"</span> tabindex="-1" aria-checked="false"&gt;黄小仙&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li role="menuitem" tabindex="-1" aria-haspopup="false"&gt;靓女&lt;/li&gt;
+  &lt;li role="menuitem" tabindex="-1" aria-haspopup="false"&gt;淑女&lt;/li&gt;
+  &lt;li role="menuitem" tabindex="-1" aria-haspopup="false"&gt;熟女&lt;/li&gt;
+&lt;/ul&gt;</pre>
+    </td>
+    <td>
+      <p><img width="206" height="107" alt="aria下拉菜单" src="http://image.zhangxinxu.com/image/blog/201203/aria-role-menu.png"></p>
+    </td>
+  </tr>
+  <tr>
+    <td>option</td>
+    <td>表示选项</td>
+    <td>
+<pre>&lt;input id="cb1-edit" class="cb_edit" type="text" tabindex="0"
+      role="combobox" aria-autocomplete="inline" aria-owns="cb1-list" /&gt;
+
+&lt;ul id="cb1-list" tabindex="-1" role="listbox" aria-expanded="true"&gt;
+    &lt;li <span style="color:#cd0000;">role="option"</span>&gt;晴川&lt;/li&gt;
+    &lt;li <span style="color:#cd0000;">role="option"</span>&gt;静秋&lt;/li&gt;
+    &lt;li <span style="color:#cd0000;">role="option"</span>&gt;黄小仙&lt;/li&gt;
+&lt;/ul&gt;</pre>
+    </td>
+    <td>
+      <p><img width="239" height="142" src="http://image.zhangxinxu.com/image/blog/201203/aria-role-combobox.png"></p>
+    </td>
+  </tr>
+  <tr>
+    <td>presentation</td>
+    <td>表示称述</td>
+    <td>
+<pre>&lt;div class="slider"&gt;
+    &lt;img aria-valuenow="45" aria-valuemax="100" aria-valuemin="0"
+        role="slider" src="slider_control.png" /&gt;
+    &lt;div <span style="color:#cd0000;">role="presentation"</span> tabindex="0"&gt;45&lt;/div&gt;
+&lt;/div&gt;</pre>
+    </td>
+    <td>左边示例的HTML为一个自定义的滑动条。而<code>role="presentation"</code>所在<code>div</code>显示的就是当前滑动位置对应的值。
+      <p><img width="213" height="56" alt="aria 自定义滑动条 » 张鑫旭-鑫空间-鑫生活" src="http://image.zhangxinxu.com/image/blog/201203/aria-role-slider.png"></p>
+    </td>
+  </tr>
+  <tr>
+    <td>progressbar</td>
+    <td>表示进度条</td>
+    <td>
+<pre>&lt;div class="progress" <span style="color:#cd0000;">role="progressbar"</span>
+    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" tabindex="0"&gt;
+    &lt;div class="progressIndicator" style="width: 23.3333%;"&gt;&lt;/div&gt;
+    &lt;div class="progressVal" aria-hidden="false"&gt;23%&lt;/div&gt;
+&lt;/div&gt;</pre>
+    </td>
+    <td>
+      <p><img width="219" height="35" alt="aria进度条" src="http://image.zhangxinxu.com/image/blog/201203/aria-role-progressbar.png"></p>
+    </td>
+  </tr>
+  <tr>
+    <td>radio</td>
+    <td>表示单选</td>
+    <td>
+<pre>&lt;h3 id="girl_label"&gt;美女们：&lt;/h3&gt;
+&lt;ul role="radiogroup" aria-labelledby="girl_label"&gt;
+    &lt;li tabindex="-1" <span style="color:#cd0000;">role="radio"</span> aria-checked="false"&gt;
+        &lt;img role="presentation" src="radio-unchecked.gif" /&gt; 晴川
+    &lt;/li&gt;
+    &lt;li tabindex="0" <span style="color:#cd0000;">role="radio"</span> aria-checked="true"&gt;
+        &lt;img role="presentation" src="radio-checked.gif" /&gt; 静秋
+    &lt;/li&gt;
+    &lt;li tabindex="-1" <span style="color:#cd0000;">role="radio"</span> aria-checked="false"&gt;
+        &lt;img role="presentation" src="radio-unchecked.gif" /&gt; 黄小仙
+    &lt;/li&gt;
+&lt;/ul&gt;</pre>
+    </td>
+    <td>自定义单选框控件的时候使用，下图为左侧HTML的效果图：
+      <p><img width="110" height="145" alt="aria单选" src="http://image.zhangxinxu.com/image/blog/201203/aria-role-radio.png"></p>
+    </td>
+  </tr>
+  <tr>
+    <td>radiogroup</td>
+    <td>表示单选组</td>
+    <td>
+<pre>&lt;h3 id="girl_label"&gt;美女们：&lt;/h3&gt;
+&lt;ul <span style="color:#cd0000;">role="radiogroup"</span> aria-labelledby="girl_label"&gt;
+    &lt;li tabindex="-1" role="radio" aria-checked="false"&gt;
+        &lt;img role="presentation" src="radio-unchecked.gif" /&gt; 晴川
+    &lt;/li&gt;
+    &lt;li tabindex="0" role="radio" aria-checked="true"&gt;
+        &lt;img role="presentation" src="radio-checked.gif" /&gt; 静秋
+    &lt;/li&gt;
+    &lt;li tabindex="-1" role="radio" aria-checked="false"&gt;
+        &lt;img role="presentation" src="radio-unchecked.gif" /&gt; 黄小仙
+    &lt;/li&gt;
+&lt;/ul&gt;</pre>
+    </td>
+    <td>
+      <p><img width="110" height="145" alt="aria单选" src="http://image.zhangxinxu.com/image/blog/201203/aria-role-radio.png"></p>
+    </td>
+  </tr>
+  <tr>
+    <td>region</td>
+    <td>表示区域</td>
+    <td>
+<pre>&lt;div <span style="color:#cd0000;">role="region"</span> tabindex="-1" aria-expanded="false"&gt;
+    我之所以会出现，是因为主人你点击了某个命中注定的按钮。
+&lt;/div&gt;</pre>
+    </td>
+    <td>例如用在<code>div</code>区域显示隐藏切换的时候。</td>
+  </tr>
+  <tr>
+    <td>row</td>
+    <td>表示行</td>
+    <td>
+<pre>&lt;table role="grid" aria-readonly="true"&gt;
+  &lt;tr <span style="color:#cd0000;">role="row"</span> aria-selected="false"&gt;
+    &lt;td role="gridcell" tabindex="-1"&gt;晴川&lt;/td&gt;
+    &lt;td role="gridcell" tabindex="-1"&gt;静秋&lt;/td&gt;
+    &lt;td role="gridcell" tabindex="-1"&gt;黄小仙&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</pre>
+    </td>
+    <td>用在表格模拟的行列表上，对应<code>table</code>下面的<code>tr</code>标签。</td>
+  </tr>
+  <tr>
+    <td>separator</td>
+    <td>表示分隔</td>
+    <td>
+<pre>&lt;ul role="menubar" title="美女菜单"&gt;
+  &lt;li role="menuitem" tabindex="0" aria-haspopup="true"&gt;美女
+    &lt;ul role="menu" aria-hidden="true"&gt;
+      &lt;li role="menuitemradio" tabindex="-1" aria-checked="true"&gt;晴川&lt;/li&gt;
+      &lt;li <span style="color:#cd0000;">role="separator"</span> tabindex="-1"&gt;&lt;/li&gt;
+      &lt;li role="menuitemradio" tabindex="-1" aria-checked="false"&gt;静秋&lt;/li&gt;
+      &lt;li role="menuitemradio" tabindex="-1" aria-checked="false"&gt;黄小仙&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li role="menuitem" tabindex="-1" aria-haspopup="false"&gt;靓女&lt;/li&gt;
+  &lt;li role="menuitem" tabindex="-1" aria-haspopup="false"&gt;淑女&lt;/li&gt;
+  &lt;li role="menuitem" tabindex="-1" aria-haspopup="false"&gt;熟女&lt;/li&gt;
+&lt;/ul&gt;</pre>
+    </td>
+    <td>反应在下图就是那条黑色的1像素水平分隔线：
+      <p><img width="210" height="123" alt="aria菜单分隔线" src="http://image.zhangxinxu.com/image/blog/201203/aria-role-sparator.png"></p>
+    </td>
+  </tr>
+  <tr>
+    <td>slider</td>
+    <td>表示滑动条</td>
+    <td>
+<pre>&lt;div class="slider"&gt;
+    &lt;img aria-valuenow="45" aria-valuemax="100" aria-valuemin="0"
+        <span style="color:#cd0000;">role="slider"</span> src="slider_control.png" /&gt;
+    &lt;div role="presentation" tabindex="0"&gt;45&lt;/div&gt;
+&lt;/div&gt;</pre>
+    </td>
+    <td>
+      <p><img width="213" height="56" alt="aria 自定义滑动条 » 张鑫旭-鑫空间-鑫生活" src="http://image.zhangxinxu.com/image/blog/201203/aria-role-slider.png"></p>
+    </td>
+  </tr>
+  <tr>
+    <td>spinbutton</td>
+    <td>表示微调</td>
+    <td>
+<pre>&lt;div class="spinbutton" <span style="color:#cd0000;">role="spinbutton"</span>
+    aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" tabindex="0"&gt;
+50&lt;/div&gt;</pre>
+    </td>
+    <td>例如下面这个数值微调效果截图：
+      <p><img width="105" height="50" alt="aria数值微调" src="http://image.zhangxinxu.com/image/blog/201203/aria-role-pinbutton.png"></p>
+    </td>
+  </tr>
+  <tr>
+    <td>tab</td>
+    <td>表示标签</td>
+    <td>
+<pre>&lt;div class="tabpanel"&gt;
+  &lt;ul class="tablist" role="tablist"&gt;
+    &lt;li aria-selected="true" <span style="color:#cd0000;">role="tab"</span> tabindex="0"&gt;美女&lt;/li&gt;
+    &lt;li <span style="color:#cd0000;">role="tab"</span> aria-selected="false" tabindex="-1"&gt;淑女&lt;/li&gt;
+    &lt;li <span style="color:#cd0000;">role="tab"</span> aria-selected="false" tabindex="-1"&gt;熟女&lt;/li&gt;
+    &lt;li <span style="color:#cd0000;">role="tab"</span> aria-selected="false" tabindex="-1"&gt;腐女&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</pre>
+    </td>
+    <td>
+      <p><img width="265" height="159" src="http://image.zhangxinxu.com/image/blog/201203/aria-role-tab.png"></p>
+    </td>
+  </tr>
+  <tr>
+    <td>tablist</td>
+    <td>表示标签列表</td>
+    <td>
+<pre>&lt;div class="tabpanel"&gt;
+  &lt;ul class="tablist" <span style="color:#cd0000;">role="tablist"</span>&gt;
+    &lt;li aria-selected="true" role="tab" tabindex="0"&gt;美女&lt;/li&gt;
+    &lt;li role="tab" aria-selected="false" tabindex="-1"&gt;淑女&lt;/li&gt;
+    &lt;li role="tab" aria-selected="false" tabindex="-1"&gt;熟女&lt;/li&gt;
+    &lt;li role="tab" aria-selected="false" tabindex="-1"&gt;腐女&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</pre>
+    </td>
+    <td>
+      <p><img width="265" height="159" src="http://image.zhangxinxu.com/image/blog/201203/aria-role-tab.png"></p>
+    </td>
+  </tr>
+  <tr>
+    <td>tabpanel</td>
+    <td>表示标签面板</td>
+    <td>
+<pre>&lt;div <span style="color:#cd0000;">role="tabpanel"</span>&gt;
+  &lt;ul class="tablist" role="tablist"&gt;<span style="color:#999;">&lt;-- 选项卡 --&gt;</span>&lt;/ul&gt;
+  &lt;div id="panel1" aria-labelledby="tab1" <span style="color:#cd0000;">role="tabpanel"</span>&gt;
+     &lt;ul class="controlList"&gt;
+        &lt;li&gt;&lt;input id="girl1" type="radio" name="girl" value="q" /&gt;
+            &lt;label for="girl1"&gt;晴川&lt;/label&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;input id="girl2" type="radio" name="girl" value="j" checked /&gt;
+            &lt;label for="girl2"&gt;静秋&lt;/label&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;input id="girl3" type="radio" name="girl" value="h" /&gt;
+            &lt;label for="girl3"&gt;黄小仙&lt;/label&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;div id="panel2" aria-labelledby="tab2" <span style="color:#cd0000;">role="tabpanel"</span>&gt;&lt;/div&gt;
+  &lt;div id="panel3" aria-labelledby="tab3" <span style="color:#cd0000;">role="tabpanel"</span>&gt;&lt;/div&gt;
+  &lt;div id="panel4" aria-labelledby="tab4" <span style="color:#cd0000;">role="tabpanel"</span>&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+    </td>
+    <td>
+      <p><img width="265" height="159" src="http://image.zhangxinxu.com/image/blog/201203/aria-role-tab.png"></p>
+    </td>
+  </tr>
+  <tr>
+    <td>timer</td>
+    <td>表示计数</td>
+    <td>
+      <pre>&lt;div <span style="color:#cd0000;">role="timer"</span> aria-atomic="true" aria-relevant="all"&gt;0&lt;/div&gt;</pre>
+    </td>
+    <td>模拟计数器，使用在动态显示规律数值变化的地方</td>
+  </tr>
+  <tr>
+    <td>toolbar</td>
+    <td>表示工具栏</td>
+    <td>
+<pre>&lt;div <span style="color:#cd0000;">role="toolbar"</span> tabindex="0" aria-activedescendant="button1"&gt;
+  &lt;img src="btncut.png" id="button1" role="button" alt="cut" /&gt;
+  &lt;img src="btncopy.png" id="button2" role="button" alt="copy" /&gt;
+  &lt;img src="btnpaste.png" id="button3" role="button" alt="paste" /&gt;
+&lt;/div&gt;</pre>
+    </td>
+    <td>左边HTML表示一个剪切，复制，粘贴三功能在一起的工具栏。</td>
+  </tr>
+  <tr>
+    <td>tooltip</td>
+    <td>表示提示文本</td>
+    <td>
+<pre>&lt;div class="text"&gt;
+   &lt;label id="name_label" for="name"&gt;姓名:&lt;/label&gt;
+   &lt;input type="text" id="name" name="name" aria-labelledby="name_label"
+       aria-describedby="tip" aria-required="false" /&gt;
+   &lt;div id="tip" <span style="color:#cd0000;">role="tooltip"</span> aria-hidden="true"&gt;必须是美女姓名哦~~&lt;/div&gt;
+&lt;/div&gt;</pre>
+    </td>
+    <td>如下图黄色的这个提示框：
+      <p><img width="211" height="62" alt="提示文本" src="http://image.zhangxinxu.com/image/blog/201203/aria-role-tooltip.png"></p>
+    </td>
+  </tr>
+  <tr>
+    <td>tree</td>
+    <td>表示树形</td>
+    <td>
+<pre>&lt;ul <span style="color:#cd0000;">role="tree"</span>&gt;
+   &lt;li aria-expanded="true" tabindex="-1" role="treeitem"&gt;
+      &lt;img alt="展开" src="expanded.gif" /&gt;美女
+      &lt;ul role="group"&gt;&lt;/ul&gt;
+   &lt;/li&gt;
+   &lt;li aria-expanded="false" tabindex="0" role="treeitem"&gt;
+      &lt;img alt="收起" src="contracted.gif" /&gt;淑女
+      &lt;ul role="group"&gt;&lt;/ul&gt;
+   &lt;/li&gt;
+&lt;/ul&gt;</pre>
+    </td>
+    <td>效果见下面<code>treeitem</code>中的图。</td>
+  </tr>
+  <tr>
+    <td>treeitem</td>
+    <td>表示树结构选项</td>
+    <td>
+<pre>&lt;ul role="tree"&gt;
+   &lt;li aria-expanded="true" tabindex="-1" <span style="color:#cd0000;">role="treeitem"</span>&gt;
+      &lt;img alt="展开" src="expanded.gif" /&gt;美女
+      &lt;ul role="group"&gt;
+         &lt;li tabindex="-1" <span style="color:#cd0000;">role="treeitem"</span>&gt;晴川&lt;/li&gt;
+         &lt;li tabindex="-1" <span style="color:#cd0000;">role="treeitem"</span>&gt;静秋&lt;/li&gt;
+         &lt;li tabindex="-1" <span style="color:#cd0000;">role="treeitem"</span>&gt;黄小仙&lt;/li&gt;
+      &lt;/ul&gt;
+   &lt;/li&gt;
+   &lt;li aria-expanded="false" tabindex="0" <span style="color:#cd0000;">role="treeitem"</span>&gt;
+      &lt;img alt="收起" src="contracted.gif" /&gt;淑女
+      &lt;ul role="group"&gt;&lt;/ul&gt;
+   &lt;/li&gt;
+&lt;/ul&gt;</pre>
+    </td>
+    <td>
+      <p><img width="99" height="115" alt="aria树形图" src="http://image.zhangxinxu.com/image/blog/201203/aria-role-tree.png"></p>
+    </td>
+  </tr>
+  </tbody></table>
+ARIA属性表
+<table id="ariaAttr" width="100%" border="1" cellspacing="1" cellpadding="0" class="params_table">
+  <caption>
+    ARIA 属性值示意及说明表<br>
+  </caption>
+  <tbody><tr>
+    <th scope="col">属性名</th>
+    <th scope="col">属性值</th>
+    <th scope="col">HTML示意</th>
+    <th scope="col">说明</th>
+  </tr>
+  <tr>
+    <td>aria-activedescendant</td>
+    <td>字符串。表示后代元素的<code>id</code>值。</td>
+    <td>
+<pre>&lt;div role="toolbar" tabindex="0" <span style="color:#cd0000;">aria-activedescendant</span>="button1"&gt;
+  &lt;img src="btncut.png" id="button1" role="button" alt="cut" /&gt;
+  &lt;img src="btncopy.png" id="button2" role="button" alt="copy" /&gt;
+  &lt;img src="btnpaste.png" id="button3" role="button" alt="paste" /&gt;
+&lt;/div&gt;</pre>
+    </td>
+    <td>aria-activedescendant 属性定义了当工具栏获取焦点时，哪一个工具栏的子控件获取了焦点。在此HTML示例中，工具栏的第一个控件（拥有<code>id</code> “button1″）是能获取焦点的子控件。</td>
+  </tr>
+  <tr>
+    <td>aria-atomic</td>
+    <td>字符串。表示区域内容是否完整播报。值可以为<code>true</code>和<code>false</code>。当为<code>true</code>时，表示辅助设备需要把整个区域内容都通报给使用者；如果为<code>false</code>则表示只需要通报修改的部分。</td>
+    <td>
+      <pre>&lt;div role="heading" aria-live="assertive" <span style="color:#cd0000;">aria-atomic</span>="true"&gt;2012年 3月&lt;/div&gt;</pre>
+    </td>
+    <td>还是这个时间选择器年月标题的例子。这里的<code>aria-atomic</code>为<code>true</code>则表示当时间改变的时候，这里的年月日期要完整播放，不要只改了月份就只报月份内容。</td>
+  </tr>
+  <tr>
+    <td>aria-autocomplete</td>
+    <td>字符串。表示用户的文本框的自动提示是否提供。可选值有：<code>inline</code>, <code>list</code>, <code>both</code>, <code>none</code>.</td>
+    <td>
+<pre>&lt;input id="cb1-edit" class="cb_edit" type="text" tabindex="0"
+      role="combobox" <span style="color:#cd0000;">aria-autocomplete</span>="inline" aria-owns="list" /&gt;
+
+&lt;ul id="list" tabindex="-1" role="listbox" aria-expanded="true"&gt;
+    &lt;li id="cb1-opt1" role="option"&gt;晴川&lt;/li&gt;
+    &lt;li id="cb1-opt2" role="option"&gt;静秋&lt;/li&gt;
+    &lt;li id="cb1-opt3" role="option"&gt;黄小仙&lt;/li&gt;
+&lt;/ul&gt;</pre>
+    </td>
+    <td>目前，该属性对于<code>inline</code>和<code>list</code>两个值的含义暂不清楚。不过可以确定的是该属性对应HTML5中<code>autocomplete</code>属性。需要注意的是，如果<code>aria-autocomplete="list"</code>, <code>aria-autocomplete="inline"</code>或<code>aria-autocomplete="both"</code>被设置在支持<code>autocomplete</code>的元素上，则<code>autocomplete</code>的属性值需要设成<code>"on"</code>, 如果是<code>aria-autocomplete="none"</code>，则需要设成<code>"off"</code></td>
+  </tr>
+  <tr>
+    <td>aria-busy</td>
+    <td>字符串。表当前区域的忙碌状态。默认为<code>false</code>, 表清除busy状态；可选为<code>true</code>, 表该区域正在加载；或为<code>error</code>, 表示该区域验证无效。</td>
+    <td>
+      <pre>&lt;ul aria-atomic="true" <span style="color:#cd0000;">aria-busy="true"</span> aria-live="polite"&gt;</pre>
+    </td>
+    <td>如果某个区域内(如这里<code>ul</code>)有多个地方需要修改，需要全部修改完毕再通知使用者的话，就可以先将<code>aria-busy</code>设为<code>true</code>, 等到全部内容更新完毕后再设成<code>false</code>. 该属性可以避免辅助工具在区域内容更新完毕前不断即时提醒使用者。</td>
+  </tr>
+  <tr>
+    <td>aria-controls</td>
+    <td>字符串。空格分隔的<code>id</code>属性值列表。</td>
+    <td>
+<pre>&lt;h3 id="tab1" aria-selected="true" <span style="color:#cd0000;">aria-controls</span>="panel1"
+    aria-expanded="true" role="tab" tabindex="0"&gt;姑娘们&lt;/h3&gt;
+
+&lt;div id="panel1" aria-labelledby="tab1" aria-hidden="false" role="tabpanel"&gt;
+    &lt;h3 tabindex="0"&gt;请选择你中意的美女……&lt;/h3&gt;
+&lt;/div&gt;</pre>
+    </td>
+    <td>该属性定义了元素间不能通过文档结构决定的关联关系。<code>ariaControls</code>属性主要被<code>role</code>为<code>group</code>, <code>region</code>, 或<code>widget</code>的元素使用。</td>
+  </tr>
+  <tr>
+    <td>aria-describedby</td>
+    <td>字符串。空格分隔的<code>id</code>属性值列表。</td>
+    <td>
+<pre>&lt;ul role="group"&gt;
+  &lt;li role="checkbox" aria-checked="mixed" tabindex="0"&gt;所有姑娘&lt;/li&gt;
+      &lt;li role="checkbox" aria-checked="false"
+        <span style="color:#cd0000;">aria-describedby="desc1"</span> tabindex="0"&gt;晴川&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p id="desc1"&gt;杨幂饰演的穿越女王~~&lt;/p&gt;</pre>
+    </td>
+    <td>同样的，该属性定义了文档结构表现不出来的的元素间的相互关联性。该属性旨在通过标签提供更多用户可能需要的信息。如果指定了不只一个<code>id</code>, 所有元素会合并在一起共同创建一条单独的描述。</td>
+  </tr>
+  <tr>
+    <td>aria-dropeffect</td>
+    <td>字符串。表示拖拽效果。可选值有：<code>copy</code>, <code>move</code>, <code>reference</code>, <code>execute</code>, <code>popup</code>, <code>none</code>, 依次表示：复制，移动，参照，执行，弹出以及没有效果。</td>
+    <td>
+      <pre><i style="color:#999;">&lt;-- 暂无HTML示例 --&gt;</i></pre>
+    </td>
+    <td>该属性用在拖拽上。</td>
+  </tr>
+  <tr>
+    <td>aria-flowto</td>
+    <td>字符串。空格分隔的<code>id</code>值们。</td>
+    <td>
+      <pre><i style="color:#999;">&lt;-- 暂无HTML示例 --&gt;</i></pre>
+    </td>
+    <td>如果该属性值对应的是单独的<code>id</code>, 辅助技术会恢复目标元素的阅读；如果对应的是多个<code>id</code>, 则辅助技术会让用户去选择、导航到目标元素。</td>
+  </tr>
+  <tr>
+    <td>aria-grabbed</td>
+    <td>字符串。拖拽中元素的捕获状态。可选值有:<code>true</code>, <code>false</code>, <code>undefined</code>. 默认为<code>undefined</code>，表示元素捕获状态未知。<code>true</code>表示元素可以捕获；<code>false</code>表示不能被捕获。</td>
+    <td>
+      <pre><i style="color:#999;">&lt;-- 暂无HTML示例 --&gt;</i></pre>
+    </td>
+    <td>该属性用在拖拽上。类似于HTML5中的<code>draggable</code>属性。</td>
+  </tr>
+  <tr>
+    <td>aria-haspopup</td>
+    <td>字符串。<code>true</code>表示点击的时候会出现菜单或是浮动元素； <code>false</code>表示没有pop-up效果。</td>
+    <td>
+<pre>&lt;ul role="menubar" title="美女菜单"&gt;
+  &lt;li role="menuitem" tabindex="0" <span style="color:#cd0000;">aria-haspopup</span>="true"&gt;
+      美女&lt;ul role="menu" aria-hidden="true"&gt;
+      &lt;li role="menuitemradio" tabindex="-1" aria-checked="true"&gt;晴川&lt;/li&gt;
+      &lt;li role="menuitemradio" tabindex="-1" aria-checked="false"&gt;静秋&lt;/li&gt;
+      &lt;li role="menuitemradio" tabindex="-1" aria-checked="false"&gt;黄小仙&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li role="menuitem" tabindex="-1" <span style="color:#cd0000;">aria-haspopup</span>="false"&gt;靓女&lt;/li&gt;
+  &lt;li role="menuitem" tabindex="-1" <span style="color:#cd0000;">aria-haspopup</span>="false"&gt;淑女&lt;/li&gt;
+  &lt;li role="menuitem" tabindex="-1" <span style="color:#cd0000;">aria-haspopup</span>="false"&gt;熟女&lt;/li&gt;
+&lt;/ul&gt;</pre>
+    </td>
+    <td>
+      <p><img width="206" height="107" alt="aria下拉菜单" src="http://image.zhangxinxu.com/image/blog/201203/aria-role-menu.png"></p>
+    </td>
+  </tr>
+  <tr>
+    <td>aria-label</td>
+    <td>字符串。</td>
+    <td>
+      <pre><i style="color:#999;">&lt;-- 暂无HTML示例 --&gt;</i></pre>
+    </td>
+    <td>定义一个字符串值标记当前元素。</td>
+  </tr>
+  <tr>
+    <td>aria-labelledby</td>
+    <td>字符串。空格分隔的<code>id</code>们</td>
+    <td>
+      <pre>&lt;div aria-labelledby="title" role="alertdialog"&gt;&lt;h3 id="title"&gt;标题&lt;/h3&gt;&lt;/div&gt;</pre>
+    </td>
+    <td><code>aria-labelledby</code>一般用在区域元素上，对于的<code>id</code>一般为对应的标题或是标签元素的<code>id</code>.关系型属性。</td>
+  </tr>
+  <tr>
+    <td>aria-level</td>
+    <td>数值。表示等级。</td>
+    <td>
+      <pre>&lt;div aria-level="2"&gt;次标题&lt;/div&gt;</pre>
+    </td>
+    <td>上面的HTML类似于<code>&lt;h2&gt;次标题&lt;/h2&gt;</code></td>
+  </tr>
+  <tr>
+    <td>aria-live</td>
+    <td>字符串。可选值有：<code>off</code>, <code>polite</code>, <code>assertive</code>, <code>rude</code>。默认为<code>off</code>, 表示不宣布更新；<code>polite</code>表示只有用户闲时宣布；<code>assertive</code>表示尽快对用户宣布；<code>rude</code>表示即时提醒用户，必要的时候甚至中断用户。</td>
+    <td>
+      <pre>&lt;div role="heading" <span style="color:#cd0000;">aria-live="assertive"</span> aria-atomic="true"&gt;2012年 3月&lt;/div&gt;</pre>
+    </td>
+    <td>绝大多数的更新应该在用户闲暇的时候告知，即时提示对用户是一种干扰。如果希望内容完全更新后再提示，可以使用上面提到的<code>aria-busy</code>.
+      <p>左侧的HTML为时间选择控件的年月标题部分，<code>aria-live="assertive"</code>表示的是当用户选择了新的时间的时候，尽快通知用户时间发生了变更。</p>
+    </td>
+  </tr>
+  <tr>
+    <td>aria-multiselectable</td>
+    <td>字符串。表示是否可多选。默认为<code>false</code>, 表示一次只能选择一个项。<code>true</code>表示一次可以选择多个项。</td>
+    <td>
+      <pre><i style="color:#999;">&lt;-- 暂无HTML示例 --&gt;</i></pre>
+    </td>
+    <td>例如手风琴展开收起效果，我们可以使用<code>aria-multiselectable</code>来告知辅助设备，一次可以展开多个项还是只有一个展开。</td>
+  </tr>
+  <tr>
+    <td>aria-owns</td>
+    <td>字符串。值为目标元素<code>id</code>.</td>
+    <td>
+<pre>&lt;input id="cb1-edit" class="cb_edit" type="text" tabindex="0"
+      role="combobox" aria-autocomplete="inline" <span style="color:#cd0000;">aria-owns</span>="list" /&gt;
+
+&lt;ul id="list" tabindex="-1" role="listbox" aria-expanded="true"&gt;
+    &lt;li id="cb1-opt1" role="option"&gt;晴川&lt;/li&gt;
+    &lt;li id="cb1-opt2" role="option"&gt;静秋&lt;/li&gt;
+    &lt;li id="cb1-opt3" role="option"&gt;黄小仙&lt;/li&gt;
+&lt;/ul&gt;</pre>
+    </td>
+    <td><code>aria-owns</code>表示元素所拥有的，这里这里的文本框拥有其对应的下拉列表。
+      <p><img width="239" height="142" src="http://image.zhangxinxu.com/image/blog/201203/aria-role-combobox.png"></p>
+    </td>
+  </tr>
+  <tr>
+    <td>aria-posinset</td>
+    <td>数值。表示当前位置。</td>
+    <td>
+      <pre><i style="color:#999;">&lt;-- 暂无HTML示例 --&gt;</i></pre>
+    </td>
+    <td>用在设置和获取一个集合内某项的当前位置。</td>
+  </tr>
+  <tr>
+    <td>aria-readonly</td>
+    <td>字符串。表示是否只读。默认为<code>false</code>, 表示元素值可以被修改；<code>true</code>表示元素指不能被改变。</td>
+    <td>
+<pre>&lt;table id="grid1" role="grid" aria-labelledby="girl_label" <span style="color:#cd0000;">aria-readonly</span>="true"&gt;
+  &lt;caption id="girl_label"&gt;美女们&lt;/caption&gt;
+    &lt;tr&gt;
+      &lt;th id="grid1_q" tabindex="-1"&gt;晴川&lt;/th&gt;
+      &lt;th id="grid1_j" tabindex="-1"&gt;静秋&lt;/th&gt;
+      &lt;th id="grid1_h" tabindex="-1"&gt;黄小仙&lt;/th&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</pre>
+    </td>
+    <td><img alt="aria网格" width="187" height="58" src="http://image.zhangxinxu.com/image/blog/201203/aria-role-grid.png"></td>
+  </tr>
+  <tr>
+    <td>aria-relevant</td>
+    <td>字符串。表示区域内哪些操作行为需要做出反应。可选值有：<code>additions</code>, <code>removals</code>, <code>text</code>, <code>all</code>，可以空格分隔多个一起显示. <code>additions</code>表示新增节点的时候做出反应；<code>removals</code>表示删除节点时重要操作；<code>text</code>表示文本改变是值得重视的；<code>all</code>等同于同时使用上面三个属性值。</td>
+    <td>
+      <pre>&lt;div role="log" aria-atomic="false" <span style="color:#cd0000;">aria-relevant</span>="additions"&gt;&lt;/div&gt;</pre>
+    </td>
+    <td>左边的HTML表示当日志内容有添加的时候做出反应。</td>
+  </tr>
+  <tr>
+    <td>aria-required</td>
+    <td>字符串。元素值是否必需。默认为<code>false</code>, 表示元素值可以为空；<code>true</code>表示元素值是必需的。</td>
+    <td>
+<pre>&lt;div class="text"&gt;
+   &lt;label id="name_label" for="name"&gt;* 姓名:&lt;/label&gt;
+   &lt;input type="text" id="name" name="name" aria-labelledby="name_label"
+       aria-describedby="tip" <span style="color:#cd0000;">aria-required</span>="true" /&gt;
+   &lt;div id="tip" role="tooltip" aria-hidden="true"&gt;姓名不能为空&lt;/div&gt;
+&lt;/div&gt;</pre>
+    </td>
+    <td>多半用在表单控件中。对应HTML5中<code>required</code>属性。</td>
+  </tr>
+  <tr>
+    <td>aria-secret</td>
+    <td>字符串。表示机密状态。</td>
+    <td>
+      <pre><i style="color:#999;">&lt;-- 暂无HTML示例 --&gt;</i></pre>
+    </td>
+    <td>具体含义不详</td>
+  </tr>
+  <tr>
+    <td>aria-setsize</td>
+    <td>数值。设置的尺寸大小值。</td>
+    <td>
+      <pre><i style="color:#999;">&lt;-- 暂无HTML示例 --&gt;</i></pre>
+    </td>
+    <td>顾名思意</td>
+  </tr>
+  <tr>
+    <td>aria-sort</td>
+    <td>字符串。表示表格或格栅中的项是以升序排列还是降序排列。可选值：<code>ascending</code>(↑), <code>descending</code>(↓), <code>none</code>, <code>other</code>.</td>
+    <td>
+      <pre><i style="color:#999;">&lt;-- 暂无HTML示例 --&gt;</i></pre>
+    </td>
+    <td>Widget组件应用属性。</td>
+  </tr>
+  <tr>
+    <td>aria-valuemax</td>
+    <td>数值。表允许的最大值。</td>
+    <td>
+<pre>&lt;div class="slider"&gt;
+    &lt;img aria-valuenow="45" <span style="color:#cd0000;">aria-valuemax</span>="100" aria-valuemin="0"
+        role="slider" src="slider_control.png" /&gt;
+    &lt;div role="presentation" tabindex="0"&gt;45&lt;/div&gt;
+&lt;/div&gt;</pre>
+    </td>
+    <td>用在范围组件上。对应于HTML5中的<code>max</code>属性。</td>
+  </tr>
+  <tr>
+    <td>aria-valuemin</td>
+    <td>数值。表示允许的最小值。</td>
+    <td>
+<pre>&lt;div class="slider"&gt;
+    &lt;img aria-valuenow="45" aria-valuemax="100" <span style="color:#cd0000;">aria-valuemin</span>="0"
+        role="slider" src="slider_control.png" /&gt;
+    &lt;div role="presentation" tabindex="0"&gt;45&lt;/div&gt;
+&lt;/div&gt;</pre>
+    </td>
+    <td>用在范围组件上。对应于HTML5中的<code>min</code>属性。</td>
+  </tr>
+  <tr>
+    <td>aria-valuenow</td>
+    <td>数值。表示当前值。</td>
+    <td>
+<pre>&lt;div class="slider"&gt;
+    &lt;img <span style="color:#cd0000;">aria-valuenow</span>="45" aria-valuemax="100" aria-valuemin="0"
+        role="slider" src="slider_control.png" /&gt;
+    &lt;div role="presentation" tabindex="0"&gt;45&lt;/div&gt;
+&lt;/div&gt;</pre>
+    </td>
+    <td>用在范围组件上。对应于<code>value</code>属性。</td>
+  </tr>
+  <tr>
+    <td>aria-valuetext</td>
+    <td>字符串。定义等同于<code>aria-valuenow</code>人可读的文本。</td>
+    <td>
+      <pre><i style="color:#999;">&lt;-- 暂无HTML示例 --&gt;</i></pre>
+    </td>
+    <td>用在范围组件上。</td>
+  </tr>
+  </tbody></table>
+ARIA状态属性表
+<table id="ariaStateAttr" width="100%" border="1" cellspacing="1" cellpadding="0" class="params_table">
+  <caption>
+    ARIA 状态值示意及说明表<br>
+  </caption>
+  <tbody><tr>
+    <th scope="col">属性状态</th>
+    <th scope="col">属性值</th>
+    <th scope="col">HTML示意</th>
+    <th scope="col">说明</th>
+  </tr>
+  <tr>
+    <td>aria-checked</td>
+    <td>字符串。表示检查的状态。<code>true</code>表示元素被选择；<code>false</code>表示元素未被选择；<code>mixed</code>表示元素同时有选择和为选择状态。</td>
+    <td>
+<pre>&lt;ul role="group"&gt;
+  &lt;li role="checkbox" <span style="color:#cd0000;">aria-checked="mixed"</span> tabindex="0"&gt;所有姑娘&lt;/li&gt;
+      &lt;li role="checkbox" <span style="color:#cd0000;">aria-checked="false"</span> tabindex="0"&gt;晴川&lt;/li&gt;
+      &lt;li role="checkbox" <span style="color:#cd0000;">aria-checked="true"</span> tabindex="0"&gt;静秋&lt;/li&gt;
+      &lt;li role="checkbox" <span style="color:#cd0000;">aria-checked="true"</span> tabindex="0"&gt;黄小仙&lt;/li&gt;
+&lt;/ul&gt;</pre>
+    </td>
+    <td><img width="140" height="116" style="float:left;" src="http://image.zhangxinxu.com/image/blog/201203/aria-checked.png">该属性用来表明用户是否选择了某些项（如左边这个截图所示）。</td>
+  </tr>
+  <tr>
+    <td>aria-disabled</td>
+    <td>字符串。表禁用状态，<code>true</code>表示当前是非激活状态；<code>false</code>表示清除非激活状态。</td>
+    <td>
+<pre>&lt;div role="button" tabindex="0" title="添加个姑娘" aria-pressed="false"
+  <span style="color:#cd0000;">aria-disabled</span>="false"&gt;添加&lt;/div&gt;</pre>
+    </td>
+    <td>对应单复选框等控件的<code>disabled</code>属性，一般用在自定义模拟控件中。</td>
+  </tr>
+  <tr>
+    <td>aria-expanded</td>
+    <td>字符串。表示展开状态。默认为<code>undefined</code>, 表示当前展开状态未知。其它可选值：<code>true</code>表示元素是展开的；<code>false</code>表示元素不是展开的。</td>
+    <td>
+<pre>&lt;h3 id="tab1" aria-selected="true" aria-controls="panel1"
+    <span style="color:#cd0000;">aria-expanded</span>="true" role="tab" tabindex="0"&gt;姑娘们&lt;/h3&gt;
+
+&lt;div id="panel1" aria-labelledby="tab1" aria-hidden="false" role="tabpanel"&gt;
+    &lt;h3 tabindex="0"&gt;请选择你中意的：&lt;/h3&gt;
+    &lt;ul class="controlList"&gt;
+        &lt;li&gt;&lt;input id="p1_1" type="radio" name="girl" value="q" /&gt;
+            &lt;label for="p1_1"&gt;晴川&lt;/label&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;input id="p1_2" type="radio" name="girl" value="j" checked /&gt;
+            &lt;label for="p1_2"&gt;静秋&lt;/label&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;input id="p1_3" type="radio" name="girl" value="h" /&gt;
+            &lt;label for="p1_3"&gt;黄小仙&lt;/label&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</pre>
+    </td>
+    <td><img width="183" height="216" style="float:left; margin-right:1em; margin-bottom:0.2em;" src="http://image.zhangxinxu.com/image/blog/201203/aria-expanded.png">例如在手风琴交互效果中标示展开与否的状态。该属性对应HTML5的<code>open</code>属性。</td>
+  </tr>
+  <tr>
+    <td>aria-hidden</td>
+    <td>字符串。可选值为<code>true</code>和<code>false</code>, <code>true</code>表示元素隐藏(不可见)，<code>false</code>表示元素可见。</td>
+    <td>
+      <pre>&lt;div aria-hidden="false"&gt;23%&lt;/div&gt;</pre>
+    </td>
+    <td>该属性使用非常普遍。几乎所有涉及到显示与隐藏这类交互或没有交互的地方都可以应用该属性。左边的示例HTML代码来自进度条进度值显示的<code>div</code>, 当前<code>aria-hidden</code>为<code>false</code>, 表示该进度值是可见的。</td>
+  </tr>
+  <tr>
+    <td>aria-invalid</td>
+    <td>字符串。表示元素值是否错误的。默认为<code>false</code>, 表示是OK的，如果为<code>true</code>, 则表示值验证不通过。</td>
+    <td>
+      <pre>&lt;input type="text" size="3" aria-labelledby="valid" <span style="color:#cd0000;">aria-invalid</span>="false" /&gt;</pre>
+    </td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>aria-pressed</td>
+    <td>字符串。表示按下的状态，可选值有：<code>true</code>, <code>false</code>, <code>mixed</code>, <code>undfined</code>.默认为<code>undfined</code>, 表示按下状态未知；<code>true</code>表示元素往下（按钮按下）；<code>false</code>表示元素抬起；<code>mixed</code>表示元素同时有按下和没有按下的状态。</td>
+    <td>
+<pre>&lt;div role="button" tabindex="0" title="添加个姑娘" <span style="color:#cd0000;">aria-pressed</span>="false"
+  aria-disabled="false"&gt;添加&lt;/div&gt;</pre>
+    </td>
+    <td>左边HTML表示按钮已经按下，同时处于禁用状态。</td>
+  </tr>
+  <tr>
+    <td>aria-selected</td>
+    <td>字符串。表示选择状态。可选值有：<code>true</code>, <code>false</code>, <code>undefined</code>. 默认为<code>undefined</code>，表示元素选择状态未知。<code>true</code>表示元素已选择；<code>false</code>表示未被选中。</td>
+    <td>
+<pre>&lt;div class="tabpanel"&gt;
+  &lt;ul class="tablist" role="tablist"&gt;
+    &lt;li role="tab" <span style="color:#cd0000;">aria-selected</span>="true" tabindex="0"&gt;美女&lt;/li&gt;
+    &lt;li role="tab" <span style="color:#cd0000;">aria-selected</span>="false" tabindex="-1"&gt;淑女&lt;/li&gt;
+    &lt;li role="tab" <span style="color:#cd0000;">aria-selected</span>="false" tabindex="-1"&gt;熟女&lt;/li&gt;
+    &lt;li role="tab" <span style="color:#cd0000;">aria-selected</span>="false" tabindex="-1"&gt;腐女&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</pre>
+    </td>
+    <td>
+      <p style="padding:0; height:44px; overflow:hidden;"><img width="265" height="159" src="http://image.zhangxinxu.com/image/blog/201203/aria-role-tab.png"></p>
+      <p>元素被选中表明其处于某种交互之中，因此选中元素很可能处于focus焦点获取状态。</p>
+    </td>
+  </tr>
+  </tbody></table>
+</body>
+</html>

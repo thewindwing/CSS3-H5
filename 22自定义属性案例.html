@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tab 标签</title>
+  <style>
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #F7F7F7;
+    }
+
+    .tabs {
+      width: 400px;
+      margin: 30px auto;
+      background-color: #FFF;
+      border: 1px solid #C0DCC0;
+      box-sizing: border-box;
+    }
+
+    .tabs nav {
+      height: 40px;
+      text-align: center;
+      line-height: 40px;
+      overflow: hidden;
+      background-color: #C0DCC0;
+      display: flex;
+    }
+
+    nav a {
+      display: block;
+      width: 100px;
+      border-right: 1px solid #FFF;
+      color: #000;
+      text-decoration: none;
+    }
+
+    nav a:last-child {
+      border-right: 0 none;
+    }
+
+    nav a.active {
+      background-color: #9BAF9B;
+    }
+
+    .cont {
+      overflow: hidden;
+      display: none;
+    }
+
+    .cont ol {
+      line-height: 30px;
+    }
+
+  </style>
+
+  <!--[if lte IE 6]>
+
+  <![endif]-->
+</head>
+<body>
+
+<div class="tabs">
+  <nav>
+    <a href="javascript:void(0);" data-cont="local">帅气的人</a>
+    <a href="javascript:void(0);" data-cont="global">纯洁的人</a>
+    <a href="javascript:void(0);" data-cont="sports">龌龊的人</a>
+    <a href="javascript:void(0);" data-cont="funny">邪恶的人</a>
+  </nav>
+  <section class="cont" id="sports">
+    <ol>
+      <li>形容人品质恶劣，思想不纯正</li>
+      <li>形容气量狭小，拘于小节。</li>
+      <li>不负责任，下了c穿上k子彼此陌生的男人没必要去接触</li>
+      <li>虚伪，明明不想付钱却找借口去上厕所，</li>
+      <li>明明不想逛街，却找借口江边更浪漫。</li>
+      <li>不愿意互相理解</li>
+      <li>花心的最龌龊</li>
+    </ol>
+  </section>
+  <section class="cont" id="local">
+    <ol>
+      <li>传说在传智播客有个很帅的男人</li>
+      <li>传说中这个男人不仅仅是帅</li>
+      <li>一见钟情的男人就在传智播客</li>
+      <li>只因为在人群中看了一眼这个帅气的男人</li>
+      <li>这个人就是传说中的杨哥</li>
+      <li>杨哥的帅不是用一句话就可以说清楚的</li>
+    </ol>
+  </section>
+  <section class="cont" id="funny">
+    <ol>
+      <li>小郭子很邪恶</li>
+      <li>超哥很邪恶</li>
+      <li>小李子很邪恶</li>
+      <li>除了小杨他们都邪恶</li>
+      <li>我编不下去了</li>
+      <li>小杨最纯洁</li>
+    </ol>
+  </section>
+  <section class="cont" id="global">
+    <ol>
+      <li>人纯洁就是心理纯洁，为人正派，没有歪心思。</li>
+      <li>在邪恶人眼里爱只不过是肉欲和精神欲，</li>
+      <li>而在纯净人眼中，</li>
+      <li>爱只是两个人肩并肩走着互相对视一眼就基本明白对方意思。</li>
+      <li>纯洁就是纯粹洁白;没有污点，是一种简单，它不复杂。</li>
+      <li>心思驳杂，动机繁多，不是纯洁。</li>
+      <li>我认为的纯洁是善良，是不会被污染的白，是拥有柔软的心的人。</li>
+    </ol>
+  </section>
+
+</div>
+<script>
+  (function (key) {
+    //页面加载第一个nav中的a选中,并且对应的section显示出来
+    var aObjs = document.querySelectorAll("nav a");
+    //遍历所有的a,如果没有应用active的a,就设置第一个a应用类样式
+    for (var i = 0; i < aObjs.length; i++) {
+      if (!aObjs[i].classList.contains("active")) {
+        aObjs[key].classList.add("active");
+        //设置对应的sction应用对应的类样式
+        var attr = aObjs[key].dataset["cont"];//获取该标签的自定义属性值
+        document.getElementById(attr).style.display = "block";
+      }
+      //每个a注册点击事件
+      aObjs[i].onclick = function () {
+        //获取应用active类样式的元素
+        var active = document.querySelector(".active");
+        //获取应用active对应的a---section也要隐藏
+        active.classList.remove("active");
+        document.getElementById(active.dataset.cont).style.display = "none";
+        this.classList.add("active");
+        document.getElementById(this.dataset.cont).style.display = "block";
+      }
+    }
+  })(3);
+
+</script>
+</body>
+</html>

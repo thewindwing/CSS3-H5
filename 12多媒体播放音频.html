@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+</head>
+<body>
+<!--controls提供播放控件-->
+<!--autoplay 自动播放-->
+<audio src="./music/cs枪声.mp3" controls autoplay loop="2"></audio>
+
+
+<!--上面的例子使用了两个不同的音频格式。HTML5 <audio> 元素会尝试以 mp3 或 ogg 来播放音频。如果失败，代码将回退尝试 <embed> 元素。-->
+<audio controls="controls" height="100" width="100" autoplay>
+  <source src="./music/1.mp3" type="audio/mp3" />
+  <source src="./music/1.ogg" type="audio/ogg" />
+  <source src="./music/1.wav" type="audio/ogg" />
+
+  破浏览器不支持
+</audio>
+</body>
+</html>

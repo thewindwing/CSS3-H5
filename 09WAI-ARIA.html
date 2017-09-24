@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+</head>
+<body>
+
+<header class="header" role="banner">
+  <h1><a href="./index.html">网站标题</a></h1>
+  <nav class="navigation" role="navigation">
+    <ul class="sitemenu" role="menubar">
+      <li class="sitemenu_item" role="menuitem"><a href="javascript:;" title="第1项">第1项</a></li>
+      <li class="sitemenu_item" role="menuitem"><a href="javascript:;" title="第2项">第2项</a></li>
+      <li class="sitemenu_item" role="menuitem"><a href="javascript:;" title="第3项">第3项</a></li>
+      <li class="sitemenu_item" role="menuitem"><a href="javascript:;" title="第4项">第4项</a></li>
+      <li class="sitemenu_item" role="menuitem"><a href="javascript:;" title="第5项">第5项</a></li>
+    </ul>
+  </nav>
+</header>
+ARIA 状态值示意及说明表
+<table id="ariaStateAttr" width="100%" border="1" cellspacing="1" cellpadding="0" class="params_table">
+  <caption>
+    ARIA 状态值示意及说明表<br>
+  </caption>
+  <tbody><tr>
+    <th scope="col">属性状态</th>
+    <th scope="col">属性值</th>
+    <th scope="col">HTML示意</th>
+    <th scope="col">说明</th>
+  </tr>
+  <tr>
+    <td>aria-checked</td>
+    <td>字符串。表示检查的状态。<code>true</code>表示元素被选择；<code>false</code>表示元素未被选择；<code>mixed</code>表示元素同时有选择和为选择状态。</td>
+    <td>
+<pre>&lt;ul role="group"&gt;
+  &lt;li role="checkbox" <span style="color:#cd0000;">aria-checked="mixed"</span> tabindex="0"&gt;所有姑娘&lt;/li&gt;
+      &lt;li role="checkbox" <span style="color:#cd0000;">aria-checked="false"</span> tabindex="0"&gt;晴川&lt;/li&gt;
+      &lt;li role="checkbox" <span style="color:#cd0000;">aria-checked="true"</span> tabindex="0"&gt;静秋&lt;/li&gt;
+      &lt;li role="checkbox" <span style="color:#cd0000;">aria-checked="true"</span> tabindex="0"&gt;黄小仙&lt;/li&gt;
+&lt;/ul&gt;</pre>
+    </td>
+    <td><img width="140" height="116" style="float:left;" src="http://image.zhangxinxu.com/image/blog/201203/aria-checked.png">该属性用来表明用户是否选择了某些项（如左边这个截图所示）。</td>
+  </tr>
+  <tr>
+    <td>aria-disabled</td>
+    <td>字符串。表禁用状态，<code>true</code>表示当前是非激活状态；<code>false</code>表示清除非激活状态。</td>
+    <td>
+<pre>&lt;div role="button" tabindex="0" title="添加个姑娘" aria-pressed="false"
+  <span style="color:#cd0000;">aria-disabled</span>="false"&gt;添加&lt;/div&gt;</pre>
+    </td>
+    <td>对应单复选框等控件的<code>disabled</code>属性，一般用在自定义模拟控件中。</td>
+  </tr>
+  <tr>
+    <td>aria-expanded</td>
+    <td>字符串。表示展开状态。默认为<code>undefined</code>, 表示当前展开状态未知。其它可选值：<code>true</code>表示元素是展开的；<code>false</code>表示元素不是展开的。</td>
+    <td>
+<pre>&lt;h3 id="tab1" aria-selected="true" aria-controls="panel1"
+    <span style="color:#cd0000;">aria-expanded</span>="true" role="tab" tabindex="0"&gt;姑娘们&lt;/h3&gt;
+
+&lt;div id="panel1" aria-labelledby="tab1" aria-hidden="false" role="tabpanel"&gt;
+    &lt;h3 tabindex="0"&gt;请选择你中意的：&lt;/h3&gt;
+    &lt;ul class="controlList"&gt;
+        &lt;li&gt;&lt;input id="p1_1" type="radio" name="girl" value="q" /&gt;
+            &lt;label for="p1_1"&gt;晴川&lt;/label&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;input id="p1_2" type="radio" name="girl" value="j" checked /&gt;
+            &lt;label for="p1_2"&gt;静秋&lt;/label&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;input id="p1_3" type="radio" name="girl" value="h" /&gt;
+            &lt;label for="p1_3"&gt;黄小仙&lt;/label&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</pre>
+    </td>
+    <td><img width="183" height="216" style="float:left; margin-right:1em; margin-bottom:0.2em;" src="http://image.zhangxinxu.com/image/blog/201203/aria-expanded.png">例如在手风琴交互效果中标示展开与否的状态。该属性对应HTML5的<code>open</code>属性。</td>
+  </tr>
+  <tr>
+    <td>aria-hidden</td>
+    <td>字符串。可选值为<code>true</code>和<code>false</code>, <code>true</code>表示元素隐藏(不可见)，<code>false</code>表示元素可见。</td>
+    <td>
+      <pre>&lt;div aria-hidden="false"&gt;23%&lt;/div&gt;</pre>
+    </td>
+    <td>该属性使用非常普遍。几乎所有涉及到显示与隐藏这类交互或没有交互的地方都可以应用该属性。左边的示例HTML代码来自进度条进度值显示的<code>div</code>, 当前<code>aria-hidden</code>为<code>false</code>, 表示该进度值是可见的。</td>
+  </tr>
+  <tr>
+    <td>aria-invalid</td>
+    <td>字符串。表示元素值是否错误的。默认为<code>false</code>, 表示是OK的，如果为<code>true</code>, 则表示值验证不通过。</td>
+    <td>
+      <pre>&lt;input type="text" size="3" aria-labelledby="valid" <span style="color:#cd0000;">aria-invalid</span>="false" /&gt;</pre>
+    </td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>aria-pressed</td>
+    <td>字符串。表示按下的状态，可选值有：<code>true</code>, <code>false</code>, <code>mixed</code>, <code>undfined</code>.默认为<code>undfined</code>, 表示按下状态未知；<code>true</code>表示元素往下（按钮按下）；<code>false</code>表示元素抬起；<code>mixed</code>表示元素同时有按下和没有按下的状态。</td>
+    <td>
+<pre>&lt;div role="button" tabindex="0" title="添加个姑娘" <span style="color:#cd0000;">aria-pressed</span>="false"
+  aria-disabled="false"&gt;添加&lt;/div&gt;</pre>
+    </td>
+    <td>左边HTML表示按钮已经按下，同时处于禁用状态。</td>
+  </tr>
+  <tr>
+    <td>aria-selected</td>
+    <td>字符串。表示选择状态。可选值有：<code>true</code>, <code>false</code>, <code>undefined</code>. 默认为<code>undefined</code>，表示元素选择状态未知。<code>true</code>表示元素已选择；<code>false</code>表示未被选中。</td>
+    <td>
+<pre>&lt;div class="tabpanel"&gt;
+  &lt;ul class="tablist" role="tablist"&gt;
+    &lt;li role="tab" <span style="color:#cd0000;">aria-selected</span>="true" tabindex="0"&gt;美女&lt;/li&gt;
+    &lt;li role="tab" <span style="color:#cd0000;">aria-selected</span>="false" tabindex="-1"&gt;淑女&lt;/li&gt;
+    &lt;li role="tab" <span style="color:#cd0000;">aria-selected</span>="false" tabindex="-1"&gt;熟女&lt;/li&gt;
+    &lt;li role="tab" <span style="color:#cd0000;">aria-selected</span>="false" tabindex="-1"&gt;腐女&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</pre>
+    </td>
+    <td>
+      <p style="padding:0; height:44px; overflow:hidden;"><img width="265" height="159" src="http://image.zhangxinxu.com/image/blog/201203/aria-role-tab.png"></p>
+      <p>元素被选中表明其处于某种交互之中，因此选中元素很可能处于focus焦点获取状态。</p>
+    </td>
+  </tr>
+  </tbody></table>
+</body>
+</html>

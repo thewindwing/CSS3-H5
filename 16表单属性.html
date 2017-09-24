@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    body {
+      height: 2000px;
+      margin: 0;
+      padding: 0;
+      background-color: #F7F7F7;
+    }
+
+    form {
+      max-width: 640px;
+      width: 100%;
+      margin: 32px auto 0;
+      font-size: 32px;
+    }
+
+    label {
+      display: block;
+      margin: 30px 0;
+    }
+
+    input {
+      width: 100%;
+      height: 32px;
+      margin-top: 10px;
+      display: block;
+    }
+
+  </style>
+
+</head>
+<body>
+<!--novalidate关闭验证-->
+<!--<form action="" id="myform" autocomplete="off" novalidate>&lt;!&ndash;所有表单关闭了自动完成功能&ndash;&gt;-->
+<form action="" id="myform" autocomplete="off" >
+ <fieldset>
+   <legend>表单属性</legend>
+  <label>
+    placeholder:<input type="text" name="ph" placeholder="请输入用户名"/>
+  </label>
+   <label>
+     autofocus:<input type="text" name="af" autofocus/>
+   </label>
+   <label>
+     multiple:<input type="file" name="mt" multiple/><!--IE8通过flash实现的-->
+   </label>
+   <label><!--输入提交后,刷新页面文本框中有自动的提示-->
+     autocomplete:<input type="text" name="ap" autocomplete="off"/>
+   </label>
+
+   <label>
+     required:<input type="text" value="" required/><!--必须添加内容-->
+   </label>
+   <label for="">
+     pattern：<input type="text" pattern="\d+" /><!--该属性值是正则-->
+   </label>
+   <label for="sm">
+     <input type="submit" value="提交" id="sm"/>
+   </label>
+ </fieldset>
+</form>
+<!--不用包裹在form标签中也可以提交-->
+<div id="dv" >
+  <p>这是一个P</p>
+</div>
+<input type="text" form="myform" name="tt" /><!--为了提交-->
+</body>
+</html>
